@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @stieglers
 - 👀 I’m interested in hacking
-- 🌱 I’m currently learning comp eng
+- 🌱 I’m a comp eng
 - 💞️ I’m looking to collaborate on hacking
 - 📫 How to reach me stieglersrenard@gmail.com
 
