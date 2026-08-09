@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy:pack": "npm run build && node scripts/pack-standalone.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
