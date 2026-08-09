@@ -28,9 +28,10 @@ export const siteConfig = {
     display: "Dar es Salaam, Tanzania",
   },
   social: {
-    // Official profile URLs not confirmed on the live site (placeholders were #).
-    // Keep empty until verified official accounts are available.
+    // Only set verified official account URLs. Empty values stay hidden in the UI.
     linkedin: "",
+    facebook: "",
+    instagram: "",
     github: "",
   },
   whatsappEnabled: true,

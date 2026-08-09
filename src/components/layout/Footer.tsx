@@ -1,14 +1,96 @@
 import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  WhatsAppIcon,
+} from "@/components/layout/SocialIcons";
 import { footerNav } from "@/content/navigation";
 import { siteConfig } from "@/content/site";
 
-export function Footer() {
+function CircleIcon({
+  href,
+  label,
+  children,
+  external = false,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) {
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--navy)] text-slate-300">
+    <a
+      href={href}
+      aria-label={label}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="inline-flex size-9 items-center justify-center rounded-full border border-white/65 text-white transition hover:border-white hover:bg-white/10"
+    >
+      {children}
+    </a>
+  );
+}
+
+export function Footer() {
+  const whatsapp = siteConfig.whatsappEnabled
+    ? `https://wa.me/${siteConfig.phone.whatsapp}`
+    : null;
+  const socialLinks = [
+    siteConfig.social.linkedin
+      ? { href: siteConfig.social.linkedin, label: "LinkedIn", icon: LinkedInIcon }
+      : null,
+    siteConfig.social.facebook
+      ? { href: siteConfig.social.facebook, label: "Facebook", icon: FacebookIcon }
+      : null,
+    siteConfig.social.instagram
+      ? { href: siteConfig.social.instagram, label: "Instagram", icon: InstagramIcon }
+      : null,
+  ].filter(Boolean) as {
+    href: string;
+    label: string;
+    icon: typeof LinkedInIcon;
+  }[];
+
+  return (
+    <footer className="bg-[var(--navy)] text-slate-300">
+      <div className="bg-[var(--royal)]">
+        <div className="container flex flex-wrap items-center justify-between gap-3 py-3 text-sm text-white">
+          <a href={siteConfig.url} className="font-medium tracking-[0.01em]">
+            www.syntrax.co.tz
+          </a>
+          <div className="flex items-center gap-3">
+            <span className="hidden h-4 w-px bg-white/40 sm:block" aria-hidden />
+            <div className="flex items-center gap-2">
+              {socialLinks.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <CircleIcon key={item.label} href={item.href} label={item.label} external>
+                    <Icon className="size-3.5" />
+                  </CircleIcon>
+                );
+              })}
+              {whatsapp ? (
+                <CircleIcon href={whatsapp} label="WhatsApp" external>
+                  <WhatsAppIcon className="size-3.5" />
+                </CircleIcon>
+              ) : null}
+              <CircleIcon href={`tel:${siteConfig.phone.e164}`} label="Call Syntrax">
+                <Phone className="size-3.5" strokeWidth={1.75} />
+              </CircleIcon>
+              <CircleIcon href={`mailto:${siteConfig.email.general}`} label="Email Syntrax">
+                <Mail className="size-3.5" strokeWidth={1.75} />
+              </CircleIcon>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container section">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_2fr]">
           <div>
             <Logo className="[&_span]:text-white [&_span:last-child]:text-slate-400" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
@@ -51,10 +133,7 @@ export function Footer() {
         <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 lg:grid-cols-[1.2fr_1fr]">
           <NewsletterForm />
           <div className="flex flex-col justify-between gap-4 text-sm text-slate-400 lg:items-end lg:text-right">
-            <p>
-              Official social profiles will appear here once verified public accounts are
-              available.
-            </p>
+            <p>Secure systems. Confident digital operations across East Africa.</p>
             <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
           </div>
         </div>

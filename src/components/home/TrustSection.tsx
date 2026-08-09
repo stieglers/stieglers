@@ -34,8 +34,8 @@ export function TrustSection() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {items.map((item, index) => (
             <Reveal key={item.title} delay={index * 80}>
-              <article className="h-full border border-[var(--border)] bg-[var(--bg-elevated)] p-6 transition hovering:border-[var(--border-strong)] hover:border-[var(--border-strong)]">
-                <div className="text-xs font-bold tracking-[0.16em] text-[var(--blue)]">
+              <article className="h-full border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] transition hover:border-[var(--royal)]/35 hover:shadow-[var(--shadow)]">
+                <div className="text-xs font-bold tracking-[0.16em] text-[var(--royal)]">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <h3 className="mt-4 text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>

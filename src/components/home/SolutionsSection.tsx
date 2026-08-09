@@ -46,10 +46,10 @@ export function SolutionsSection() {
             <Reveal key={solution.number} delay={index * 70}>
               <Link
                 href={solution.href}
-                className="group flex h-full flex-col justify-between border border-[var(--border)] bg-[var(--bg-elevated)] p-6 transition hover:border-[var(--blue)] md:p-8"
+                className="group flex h-full flex-col justify-between border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] transition hover:border-[var(--royal)] hover:shadow-[var(--shadow)] md:p-8"
               >
                 <div>
-                  <div className="text-4xl font-semibold tracking-[-0.06em] text-[var(--blue)]/80">
+                  <div className="text-4xl font-semibold tracking-[-0.06em] text-[var(--royal)]/80">
                     {solution.number}
                   </div>
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em]">
@@ -57,7 +57,7 @@ export function SolutionsSection() {
                   </h3>
                   <p className="mt-3 max-w-md text-[var(--text-muted)]">{solution.text}</p>
                 </div>
-                <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--blue)]">
+                <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--royal)]">
                   Learn more
                   <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>

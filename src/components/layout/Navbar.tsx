@@ -50,14 +50,14 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-50 border-b transition-all duration-300",
           scrolled
-            ? "border-[var(--border)] bg-[color-mix(in_srgb,var(--bg-elevated)_82%,transparent)] backdrop-blur-xl shadow-[var(--shadow-sm)]"
-            : "border-transparent bg-[color-mix(in_srgb,var(--bg)_70%,transparent)] backdrop-blur-md",
+            ? "border-[var(--border)] bg-[color-mix(in_srgb,var(--bg-elevated)_90%,transparent)] backdrop-blur-xl shadow-[var(--shadow-sm)]"
+            : "border-[var(--border)] bg-[color-mix(in_srgb,var(--bg-elevated)_88%,transparent)] backdrop-blur-md",
         )}
       >
         <div className="container flex h-[var(--header-h)] items-center justify-between gap-4">
           <Logo />
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
             {primaryNav.map((item) => {
               const active =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -66,8 +66,8 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "inline-flex h-10 items-center gap-1 px-3 text-sm font-medium text-[var(--text-muted)] transition hover:text-[var(--heading)]",
-                      active && "text-[var(--heading)]",
+                      "inline-flex h-10 items-center gap-1 px-3 text-[13px] font-semibold tracking-[0.01em] text-[var(--text-muted)] transition hover:text-[var(--royal)]",
+                      active && "text-[var(--royal)]",
                     )}
                   >
                     {item.label}
