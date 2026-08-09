@@ -57,7 +57,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[var(--navy)] text-slate-300">
-      <div className="bg-[var(--navy-2)]">
+      <div className="bg-[var(--blue)]">
         <div className="container flex flex-wrap items-center justify-between gap-3 py-3 text-sm text-white">
           <a href={siteConfig.url} className="font-medium tracking-[0.01em]">
             www.syntrax.co.tz

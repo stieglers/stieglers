@@ -15,13 +15,13 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#071426",
+          background: "linear-gradient(120deg, #05014a 0%, #07017a 45%, #0a00f4 100%)",
           color: "white",
           padding: 80,
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, color: "#60A5FA" }}>
+        <div style={{ fontSize: 28, letterSpacing: 6, color: "#c7c5ff" }}>
           SYNTRAX TECHNOLOGIES
         </div>
         <div style={{ marginTop: 28, fontSize: 64, fontWeight: 700, maxWidth: 900 }}>

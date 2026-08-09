@@ -14,12 +14,12 @@ export function CtaBand({
   return (
     <section className="section">
       <div className="container">
-        <div className="relative overflow-hidden bg-[linear-gradient(120deg,#030d1f_0%,#06162e_40%,#062a5c_100%)] px-6 py-12 text-white md:px-12 md:py-16">
+        <div className="relative overflow-hidden bg-[linear-gradient(120deg,#05014a_0%,#07017a_42%,#0a00f4_100%)] px-6 py-12 text-white md:px-12 md:py-16">
           <div
             className="pointer-events-none absolute inset-0 opacity-45"
             style={{
               background:
-                "radial-gradient(600px 240px at 20% 20%, rgba(42,164,223,0.18), transparent), radial-gradient(500px 220px at 90% 80%, rgba(255,255,255,0.08), transparent)",
+                "radial-gradient(600px 240px at 20% 20%, rgba(90,82,255,0.28), transparent), radial-gradient(500px 220px at 90% 80%, rgba(255,255,255,0.1), transparent)",
             }}
             aria-hidden
           />

@@ -53,7 +53,7 @@ export function TopBar() {
   }[];
 
   return (
-    <div className="bg-[var(--navy-2)] text-white">
+    <div className="bg-[var(--blue)] text-white">
       <div className="container flex h-11 items-center justify-between gap-4 text-sm">
         <a
           href={siteConfig.url}
