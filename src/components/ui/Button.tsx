@@ -18,18 +18,18 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-[var(--blue)] text-white hover:bg-[var(--blue-hover)] shadow-[var(--shadow-sm)]",
+    "bg-[var(--brand)] text-white hover:bg-[var(--brand-hover)] shadow-[0_0_0_1px_rgba(10,0,244,0.4),0_12px_40px_rgba(10,0,244,0.28)]",
   secondary:
-    "bg-transparent text-[var(--heading)] border border-[var(--border-strong)] hover:border-[var(--blue)] hover:text-[var(--blue)]",
+    "bg-transparent text-[var(--heading)] border border-[var(--border-strong)] hover:border-[var(--brand)] hover:text-[var(--brand)]",
   ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--accent-soft)]",
   inverse:
-    "bg-white text-[var(--navy)] hover:bg-[#eceeff] shadow-[var(--shadow-sm)]",
+    "bg-white text-[var(--deep)] hover:bg-[var(--soft)] shadow-[0_10px_30px_rgba(0,0,0,0.2)]",
 };
 
 const sizes = {
-  sm: "h-10 px-4 text-sm",
-  md: "h-12 px-5 text-sm",
-  lg: "h-13 px-6 text-base min-h-12",
+  sm: "h-10 px-4 text-[13px]",
+  md: "h-12 px-5 text-[15px]",
+  lg: "h-14 px-6 text-base",
 };
 
 export function Button({
@@ -46,7 +46,7 @@ export function Button({
   "aria-label": ariaLabel,
 }: ButtonProps) {
   const classes = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-[var(--radius-sm)] font-semibold tracking-[-0.01em] transition-all duration-200 disabled:opacity-60 disabled:pointer-events-none",
+    "group inline-flex items-center justify-center gap-2 rounded-[var(--radius)] font-semibold tracking-[-0.01em] transition-all duration-250 disabled:opacity-60 disabled:pointer-events-none",
     variants[variant],
     sizes[size],
     className,
@@ -57,7 +57,7 @@ export function Button({
       <span>{children}</span>
       {arrow ? (
         <ArrowRight
-          className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+          className="size-4 transition-transform duration-250 group-hover:translate-x-1"
           aria-hidden
         />
       ) : null}

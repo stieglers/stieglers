@@ -2,33 +2,33 @@ import { Reveal } from "@/components/shared/Reveal";
 
 const principles = [
   "Security-first engineering",
-  "Business-focused technology",
+  "Business understanding",
   "Scalable architecture",
-  "Local understanding",
+  "Local expertise",
   "Enterprise discipline",
   "Long-term partnership",
 ];
 
 export function WhySyntrax() {
   return (
-    <section className="section border-y border-[var(--border)] bg-[var(--bg-muted)]/50">
-      <div className="container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+    <section className="section">
+      <div className="container">
         <Reveal>
-          <div>
-            <div className="eyebrow">Why organizations choose Syntrax</div>
-            <h2 className="mt-3 text-[clamp(2rem,4vw,3.25rem)] font-semibold tracking-[-0.04em]">
-              Built for trust, delivery and lasting operational confidence.
-            </h2>
-          </div>
+          <div className="eyebrow">Why Syntrax</div>
+          <h2 className="mt-4 max-w-[16ch] text-[clamp(2.6rem,6vw,5.5rem)] font-semibold tracking-[-0.045em]">
+            Built for organizations that cannot afford to get technology wrong.
+          </h2>
         </Reveal>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {principles.map((principle, index) => (
-            <Reveal key={principle} delay={index * 50}>
-              <div className="border border-[var(--border)] bg-[var(--bg-elevated)] px-5 py-6">
-                <div className="text-xs font-bold tracking-[0.16em] text-[var(--blue)]">
+        <div className="mt-14 grid gap-px bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
+          {principles.map((item, index) => (
+            <Reveal key={item} delay={index * 50}>
+              <div className="h-full bg-[var(--bg)] px-6 py-10">
+                <div className="text-xs font-semibold tracking-[0.18em] text-[var(--brand)]">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-                <p className="mt-3 text-xl font-semibold tracking-[-0.03em]">{principle}</p>
+                <p className="mt-5 text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+                  {item}
+                </p>
               </div>
             </Reveal>
           ))}

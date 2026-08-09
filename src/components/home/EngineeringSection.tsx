@@ -1,91 +1,73 @@
-"use client";
-
-import { useState } from "react";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { cn } from "@/lib/utils";
 
-const diagrams = [
-  {
-    name: "Application architecture",
-    nodes: ["Interfaces", "Services", "APIs", "Data", "Identity"],
-    detail:
-      "Role-aware interfaces over service layers, with secure APIs, auditability and clear domain boundaries.",
-  },
-  {
-    name: "Cloud architecture",
-    nodes: ["Edge", "Apps", "Data", "Backup", "Observability"],
-    detail:
-      "Hosting patterns designed for availability, recovery readiness and operational ownership.",
-  },
-  {
-    name: "Cybersecurity architecture",
-    nodes: ["Identity", "Apps", "Data", "Infra", "Monitoring"],
-    detail:
-      "Controls layered across identity, applications, data, infrastructure and monitoring pathways.",
-  },
-  {
-    name: "Network architecture",
-    nodes: ["Core", "Access", "Segments", "Remote", "Edge"],
-    detail:
-      "Segmentation, secure access and resilient connectivity for environments that must stay online.",
-  },
-  {
-    name: "Integration architecture",
-    nodes: ["Sources", "Contracts", "Events", "Validation", "Ops"],
-    detail:
-      "Trusted data exchange with explicit contracts, failure handling and supportable ownership.",
-  },
+const layers = [
+  "Users",
+  "Identity",
+  "Applications",
+  "API Gateway",
+  "Services",
+  "Data",
+  "Infrastructure",
 ];
 
-export function EngineeringSection() {
-  const [active, setActive] = useState(diagrams[0].name);
-  const current = diagrams.find((item) => item.name === active) ?? diagrams[0];
+const controls = ["Access control", "Encryption", "Logging", "Segmentation", "Monitoring"];
 
+export function EngineeringSection() {
   return (
-    <section className="section">
+    <section className="section bg-[var(--deep-2)]">
       <div className="container">
         <Reveal>
-          <SectionHeading
-            eyebrow="How we engineer"
-            title="Architecture that communicates technical seriousness."
-            lead="Clean diagrams for the systems Syntrax designs and delivers — without exposing confidential infrastructure details."
-          />
+          <div className="eyebrow">Technology architecture</div>
+          <h2 className="section-title mt-4">Engineered for complexity.</h2>
+          <p className="lead">
+            A clear architecture model for how Syntrax designs systems that remain secure,
+            supportable and scalable under real operational pressure.
+          </p>
         </Reveal>
-        <div className="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-2">
-            {diagrams.map((diagram) => (
-              <button
-                key={diagram.name}
-                type="button"
-                onClick={() => setActive(diagram.name)}
-                className={cn(
-                  "w-full border px-4 py-3 text-left text-sm font-semibold transition",
-                  active === diagram.name
-                    ? "border-[var(--blue)] bg-[var(--accent-soft)]"
-                    : "border-[var(--border)] bg-[var(--bg-elevated)]",
-                )}
-              >
-                {diagram.name}
-              </button>
-            ))}
-          </div>
-          <div className="border border-[var(--border)] bg-[var(--bg-elevated)] p-6 md:p-8">
-            <h3 className="text-2xl font-semibold tracking-[-0.03em]">{current.name}</h3>
-            <p className="mt-3 text-[var(--text-muted)]">{current.detail}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {current.nodes.map((node, index) => (
-                <div key={node} className="flex items-center gap-3">
-                  <div className="border border-[var(--border-strong)] bg-[var(--bg)] px-4 py-3 text-sm font-semibold">
-                    {node}
-                  </div>
-                  {index < current.nodes.length - 1 ? (
-                    <div className="hidden h-px w-6 bg-[var(--border-strong)] sm:block" />
-                  ) : null}
-                </div>
-              ))}
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.85fr]">
+          <Reveal>
+            <div className="border border-[var(--border)] bg-[var(--deep)] p-6 md:p-8">
+              <ol className="space-y-0">
+                {layers.map((layer, index) => (
+                  <li key={layer}>
+                    <div className="flex items-center justify-between border border-[var(--border)] px-4 py-4">
+                      <span className="text-lg font-semibold">{layer}</span>
+                      <span className="text-xs tracking-[0.16em] text-[var(--brand)]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    {index < layers.length - 1 ? (
+                      <div className="py-2 text-center text-[var(--brand)]" aria-hidden>
+                        ↓
+                      </div>
+                    ) : null}
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="border border-[var(--brand)] bg-[rgba(10,0,244,0.1)] p-6 md:p-8">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+                Security envelope
+              </p>
+              <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">
+                Controls surrounding the stack.
+              </h3>
+              <p className="mt-4 text-[var(--text-muted)]">
+                Security is not a separate box at the end. It wraps identity, services, data and
+                infrastructure as a continuous operating discipline.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {controls.map((item) => (
+                  <li key={item} className="border border-[var(--border)] bg-[var(--deep)] px-4 py-3">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

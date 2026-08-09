@@ -24,11 +24,11 @@ export function Logo({
         priority
       />
       <span className="leading-none">
-        <span className="block text-sm font-bold tracking-[0.18em] text-[var(--heading)]">
+        <span className="block text-sm font-bold tracking-[0.2em] text-[var(--heading)]">
           SYNTRAX
         </span>
         {!compact ? (
-          <span className="mt-1 block text-[10px] font-medium tracking-[0.16em] text-[var(--text-muted)]">
+          <span className="mt-1 block text-[10px] font-medium tracking-[0.18em] text-[var(--text-muted)]">
             TECHNOLOGIES
           </span>
         ) : null}

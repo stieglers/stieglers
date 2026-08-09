@@ -1,42 +1,59 @@
 import Link from "next/link";
 import { insights } from "@/content/insights";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
 
 export function InsightsSection() {
+  const [featured, ...rest] = insights;
+
   return (
-    <section className="section bg-[var(--bg-muted)]/40">
+    <section className="section">
       <div className="container">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <Reveal>
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <div className="eyebrow">Insights</div>
+              <h2 className="section-title mt-4">Think with Syntrax.</h2>
+            </div>
+            <Link href="/insights" className="text-sm font-semibold text-[var(--brand)]">
+              All insights →
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
           <Reveal>
-            <SectionHeading
-              eyebrow="Insights"
-              title="Practical thinking for technology leaders."
-              lead="CMS-ready articles across cybersecurity, infrastructure and digital transformation."
-            />
+            <article className="border border-[var(--border)] bg-[var(--surface)] p-8 md:min-h-[420px] md:p-10">
+              <div className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
+                {featured.category}
+              </div>
+              <h3 className="mt-5 text-[clamp(2rem,4vw,3.5rem)] font-semibold tracking-[-0.04em]">
+                <Link href={`/insights/${featured.slug}`} className="hover:text-[var(--brand)]">
+                  {featured.title}
+                </Link>
+              </h3>
+              <p className="mt-5 max-w-2xl text-lg text-[var(--text-muted)]">{featured.excerpt}</p>
+              <p className="mt-8 text-sm text-[var(--muted)]">
+                {featured.date} · {featured.readingTime}
+              </p>
+            </article>
           </Reveal>
-          <Button href="/insights" variant="secondary" arrow>
-            All insights
-          </Button>
-        </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {insights.map((insight, index) => (
-            <Reveal key={insight.slug} delay={index * 60}>
-              <article className="h-full border border-[var(--border)] bg-[var(--bg-elevated)] p-6">
-                <div className="flex items-center justify-between gap-3 text-xs font-semibold tracking-[0.08em] text-[var(--text-muted)] uppercase">
-                  <span>{insight.category}</span>
-                  <span>{insight.readingTime}</span>
-                </div>
-                <h3 className="mt-4 text-xl font-semibold tracking-[-0.02em]">
-                  <Link href={`/insights/${insight.slug}`} className="hover:text-[var(--blue)]">
-                    {insight.title}
-                  </Link>
-                </h3>
-                <p className="mt-3 text-sm text-[var(--text-muted)]">{insight.excerpt}</p>
-              </article>
-            </Reveal>
-          ))}
+          <div className="space-y-4">
+            {rest.map((insight, index) => (
+              <Reveal key={insight.slug} delay={index * 60}>
+                <article className="border border-[var(--border)] p-6">
+                  <div className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
+                    {insight.category}
+                  </div>
+                  <h3 className="mt-3 text-xl font-semibold tracking-[-0.02em]">
+                    <Link href={`/insights/${insight.slug}`} className="hover:text-[var(--brand)]">
+                      {insight.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 text-sm text-[var(--text-muted)]">{insight.excerpt}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

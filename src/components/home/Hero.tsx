@@ -1,69 +1,60 @@
 import { Button } from "@/components/ui/Button";
-import { ArchitectureStack } from "@/components/visuals/ArchitectureStack";
+import { HeroArchitecture } from "@/components/visuals/HeroArchitecture";
 import { Reveal } from "@/components/shared/Reveal";
 
-const trust = ["Cybersecurity", "Enterprise Systems", "Digital Transformation", "East Africa"];
+const pillars = ["Security", "Engineering", "Infrastructure", "Digital Transform"];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-[var(--border)]">
+    <section className="relative overflow-hidden pt-[var(--header-h)]">
+      <div className="absolute inset-0 bg-[var(--deep)]" aria-hidden />
+      <div className="absolute inset-0 tech-grid opacity-30" aria-hidden />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(118deg, #05014a 0%, #07017a 36%, #0a00f4 78%, #180dff 100%)",
-        }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 grid-lines opacity-15 mix-blend-soft-light" aria-hidden />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(700px 340px at 18% 20%, rgba(90,82,255,0.28), transparent 60%), radial-gradient(560px 280px at 88% 10%, rgba(255,255,255,0.1), transparent 55%)",
+            "radial-gradient(900px 500px at 15% 20%, rgba(10,0,244,0.22), transparent 55%), radial-gradient(700px 420px at 85% 10%, rgba(10,0,244,0.12), transparent 50%)",
         }}
         aria-hidden
       />
 
-      <div className="container relative grid items-center gap-10 py-16 lg:min-h-[calc(100svh-8.5rem)] lg:grid-cols-[1.12fr_0.88fr] lg:gap-12 lg:py-20">
+      <div className="container relative grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20 lg:min-h-[calc(100svh-var(--header-h))]">
         <Reveal>
-          <div className="eyebrow text-white/90">Syntrax Technologies</div>
-          <h1 className="mt-4 max-w-3xl text-[clamp(2.35rem,5.8vw,4.75rem)] font-semibold tracking-[-0.05em] text-white">
-            Secure technology.
+          <div className="eyebrow">Syntrax Technologies</div>
+          <h1 className="display mt-5 max-w-[11ch] text-white">
+            We engineer
             <br />
-            Built for business.
+            secure digital
+            <br />
+            operations.
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-white/80">
-            We design, build and secure digital systems that help organizations operate with
-            confidence, efficiency and resilience.
+          <p className="lead">
+            Syntrax designs, builds and secures the technology systems that organizations depend
+            on to operate, grow and stay resilient.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/solutions" variant="inverse" arrow>
-              Explore Solutions
+            <Button href="/solutions" arrow>
+              Explore Syntrax
             </Button>
-            <Button
-              href="/contact"
-              variant="secondary"
-              className="border-white/35 text-white hover:border-white hover:bg-white/10 hover:text-white"
-            >
+            <Button href="/contact" variant="secondary" arrow>
               Talk to an Expert
             </Button>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/20 pt-6 text-xs font-semibold tracking-[0.08em] text-white/75 uppercase">
-            {trust.map((item) => (
-              <li key={item} className="inline-flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-[var(--cyan)]" aria-hidden />
-                {item}
+          <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-[var(--border)] pt-6 sm:grid-cols-4">
+            {pillars.map((item) => (
+              <li key={item}>
+                <div className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
+                  {item}
+                </div>
               </li>
             ))}
           </ul>
         </Reveal>
         <Reveal delay={120}>
-          <div className="rounded-[var(--radius-lg)] border border-white/15 bg-white/95 p-1 shadow-[var(--shadow)] backdrop-blur-sm dark:bg-[var(--bg-elevated)]">
-            <ArchitectureStack />
-          </div>
+          <HeroArchitecture />
         </Reveal>
       </div>
+      <div className="glow-line" aria-hidden />
     </section>
   );
 }

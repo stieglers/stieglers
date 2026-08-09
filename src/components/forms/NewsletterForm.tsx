@@ -70,7 +70,7 @@ export function NewsletterForm() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Work email"
-          className="h-12 w-full rounded-[var(--radius-sm)] border border-white/15 bg-white/5 px-3 text-white outline-none placeholder:text-slate-500 focus:border-[var(--cyan)]"
+          className="h-12 w-full border border-white/15 bg-white/5 px-3 text-white outline-none placeholder:text-slate-500 focus:border-[var(--brand)]"
         />
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => {
@@ -79,9 +79,9 @@ export function NewsletterForm() {
               <button
                 key={category}
                 type="button"
-                className={`rounded-[4px] border px-2.5 py-1 text-xs font-semibold ${
+                className={`border px-2.5 py-1 text-xs font-semibold ${
                   active
-                    ? "border-[var(--cyan)] text-[var(--cyan)]"
+                    ? "border-[var(--brand)] text-[var(--brand)]"
                     : "border-white/15 text-slate-400"
                 }`}
                 onClick={() =>

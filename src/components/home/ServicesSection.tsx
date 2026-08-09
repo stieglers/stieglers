@@ -1,101 +1,124 @@
-import Link from "next/link";
-import {
-  ArrowUpRight,
-  Cloud,
-  Cpu,
-  Network,
-  Shield,
-  Sparkles,
-  Workflow,
-  Cable,
-  Compass,
-} from "lucide-react";
-import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+"use client";
 
-const items = [
+import { useState } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/shared/Reveal";
+import { cn } from "@/lib/utils";
+
+const services = [
   {
     title: "Cybersecurity",
-    text: "Assessments, hardening guidance and security readiness for critical systems.",
     href: "/services/cybersecurity",
-    icon: Shield,
-  },
-  {
-    title: "Software Engineering",
-    text: "Secure business applications designed around real organizational workflows.",
-    href: "/services/software-engineering",
-    icon: Cpu,
-  },
-  {
-    title: "Cloud & Infrastructure",
-    text: "Resilient foundations for hosting, recovery and operational continuity.",
-    href: "/services/cloud-infrastructure",
-    icon: Cloud,
-  },
-  {
-    title: "IT Consulting",
-    text: "Clear technology advice for architecture, vendors and delivery decisions.",
-    href: "/services/it-consulting",
-    icon: Compass,
-  },
-  {
-    title: "Systems Integration",
-    text: "Connect platforms so information moves with control and trust.",
-    href: "/services/systems-integration",
-    icon: Cable,
-  },
-  {
-    title: "Digital Transformation",
-    text: "Modernize processes and replace fragile manual workarounds.",
-    href: "/services/digital-transformation",
-    icon: Sparkles,
-  },
-  {
-    title: "Network Architecture",
-    text: "Networks designed for performance, segmentation and secure access.",
-    href: "/services/network-infrastructure",
-    icon: Network,
+    text: "Assess exposure, harden systems and strengthen operational readiness.",
   },
   {
     title: "Security Assessments",
-    text: "Vulnerability assessment and penetration testing with actionable reporting.",
     href: "/services/cybersecurity",
-    icon: Workflow,
+    text: "Vulnerability assessment and penetration testing with actionable reporting.",
+  },
+  {
+    title: "Software Engineering",
+    href: "/services/software-engineering",
+    text: "Secure applications designed around organizational workflows.",
+  },
+  {
+    title: "Enterprise Systems",
+    href: "/services/software-engineering",
+    text: "Platforms that replace fragmented tools and manual process debt.",
+  },
+  {
+    title: "Cloud Infrastructure",
+    href: "/services/cloud-infrastructure",
+    text: "Resilient foundations for availability, recovery and growth.",
+  },
+  {
+    title: "Network Architecture",
+    href: "/services/network-infrastructure",
+    text: "Segmentation, access and dependable connectivity design.",
+  },
+  {
+    title: "Systems Integration",
+    href: "/services/systems-integration",
+    text: "Trusted data movement across the platforms your teams use.",
+  },
+  {
+    title: "Digital Transformation",
+    href: "/services/digital-transformation",
+    text: "Practical modernization with clear ownership and outcomes.",
+  },
+  {
+    title: "IT Consulting",
+    href: "/services/it-consulting",
+    text: "Decisions leaders can defend — architecture, vendors and delivery.",
+  },
+  {
+    title: "Managed Technology Services",
+    href: "/consultation",
+    text: "Ongoing partnership for systems that must keep moving.",
   },
 ];
 
 export function ServicesSection() {
+  const [active, setActive] = useState(0);
+
   return (
     <section className="section">
-      <div className="container">
+      <div className="container grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <SectionHeading
-            eyebrow="Services"
-            title="A complete technology practice."
-            lead="From cybersecurity and engineering to infrastructure, integration and transformation."
-          />
+          <div className="eyebrow">Services</div>
+          <h2 className="section-title mt-4">A complete technology practice.</h2>
+          <p className="lead">
+            From cybersecurity and engineering to infrastructure, integration and transformation —
+            delivered with enterprise discipline.
+          </p>
+          <div className="mt-10 border border-[var(--border)] bg-[var(--surface)] p-6">
+            <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
+              Selected
+            </p>
+            <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">
+              {services[active].title}
+            </h3>
+            <p className="mt-4 text-[var(--text-muted)]">{services[active].text}</p>
+            <Link
+              href={services[active].href}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)]"
+            >
+              Learn more <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
         </Reveal>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {items.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <Reveal key={item.title} delay={index * 40}>
-                <Link
-                  href={item.href}
-                  className="group flex h-full flex-col border border-[var(--border)] bg-[var(--bg-elevated)] p-5 transition hover:border-[var(--blue)]"
+
+        <Reveal delay={80}>
+          <ul className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
+            {services.map((service, index) => (
+              <li key={service.title}>
+                <button
+                  type="button"
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                  onClick={() => setActive(index)}
+                  className={cn(
+                    "flex w-full items-center justify-between gap-4 py-5 text-left transition",
+                    active === index ? "text-white" : "text-[var(--muted)] hover:text-white",
+                  )}
                 >
-                  <Icon className="size-5 text-[var(--blue)]" aria-hidden />
-                  <h3 className="mt-4 text-lg font-semibold tracking-[-0.02em]">{item.title}</h3>
-                  <p className="mt-2 flex-1 text-sm text-[var(--text-muted)]">{item.text}</p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[var(--blue)]">
-                    Learn more
-                    <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <span className="text-xl font-semibold tracking-[-0.02em] md:text-2xl">
+                    {service.title}
                   </span>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
+                  <span
+                    className={cn(
+                      "text-xs font-semibold tracking-[0.16em]",
+                      active === index ? "text-[var(--brand)]" : "text-transparent",
+                    )}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

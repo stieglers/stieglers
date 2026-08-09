@@ -2,57 +2,65 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { products } from "@/content/products";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
 
 export function ProductsSection() {
   return (
     <section className="section">
       <div className="container">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Our technology"
-              title="Products built for real operational work."
-              lead="Live Syntrax platforms spanning cybersecurity readiness, education, retail and pharmacy operations."
-            />
-          </Reveal>
-          <Reveal>
-            <Button href="/products" variant="secondary" arrow>
-              View all products
-            </Button>
-          </Reveal>
-        </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <Reveal>
+          <div className="eyebrow">Products</div>
+          <h2 className="section-title mt-4">Technology platforms for real operations.</h2>
+        </Reveal>
+
+        <div className="mt-14 space-y-0 border-y border-[var(--border)]">
           {products.map((product, index) => (
             <Reveal key={product.slug} delay={index * 60}>
-              <article className="border border-[var(--border)] bg-[var(--bg-elevated)] p-6 md:p-8">
-                <p className="text-xs font-bold tracking-[0.16em] text-[var(--blue)] uppercase">
-                  {product.name}
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
-                  {product.tagline}
-                </h3>
-                <p className="mt-3 text-[var(--text-muted)]">{product.summary}</p>
-                <ul className="mt-5 space-y-2 text-sm text-[var(--text-muted)]">
-                  {product.capabilities.slice(0, 4).map((capability) => (
-                    <li key={capability} className="flex gap-2">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--blue)]" />
-                      <span>{capability}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-sm text-[var(--text-muted)]">
-                  <span className="font-semibold text-[var(--heading)]">For:</span>{" "}
-                  {product.audience.slice(0, 2).join(" · ")}
-                </p>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--blue)]"
-                >
-                  Explore {product.name}
-                  <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
-                </Link>
+              <article className="grid gap-8 border-b border-[var(--border)] py-10 last:border-b-0 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-14">
+                <div>
+                  <div className="text-sm font-semibold tracking-[0.18em] text-[var(--brand)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mt-4 text-[clamp(2rem,4vw,3.5rem)] font-semibold tracking-[-0.04em]">
+                    {product.name}
+                  </h3>
+                  <p className="mt-4 max-w-md text-[var(--text-muted)]">{product.summary}</p>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)]"
+                  >
+                    Explore
+                    <ArrowRight className="size-4 transition group-hover:translate-x-1" />
+                  </Link>
+                </div>
+                <div className="relative min-h-56 overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-6 md:min-h-72 md:p-8">
+                  <div className="absolute inset-0 tech-grid opacity-30" aria-hidden />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(360px 180px at 80% 20%, rgba(10,0,244,0.28), transparent 70%)",
+                    }}
+                    aria-hidden
+                  />
+                  <div className="relative">
+                    <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
+                      Product signal
+                    </p>
+                    <p className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
+                      {product.tagline}
+                    </p>
+                    <ul className="mt-8 grid gap-2 sm:grid-cols-2">
+                      {product.capabilities.slice(0, 4).map((capability) => (
+                        <li
+                          key={capability}
+                          className="border border-[var(--border)] bg-[rgba(5,8,22,0.35)] px-3 py-3 text-sm"
+                        >
+                          {capability}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </article>
             </Reveal>
           ))}

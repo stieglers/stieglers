@@ -15,20 +15,20 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "linear-gradient(120deg, #05014a 0%, #07017a 45%, #0a00f4 100%)",
+          background: "linear-gradient(120deg, #050816 0%, #080D24 45%, #0A00F4 140%)",
           color: "white",
           padding: 80,
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, color: "#c7c5ff" }}>
+        <div style={{ fontSize: 28, letterSpacing: 6, color: "#A7B0C8" }}>
           SYNTRAX TECHNOLOGIES
         </div>
         <div style={{ marginTop: 28, fontSize: 64, fontWeight: 700, maxWidth: 900 }}>
-          Secure Systems. Confident Digital Operations.
+          We engineer secure digital operations.
         </div>
-        <div style={{ marginTop: 28, fontSize: 28, color: "#94A3B8" }}>
-          Cybersecurity · Enterprise Software · Infrastructure
+        <div style={{ marginTop: 28, fontSize: 28, color: "#A7B0C8" }}>
+          Cybersecurity · Software · Infrastructure
         </div>
       </div>
     ),

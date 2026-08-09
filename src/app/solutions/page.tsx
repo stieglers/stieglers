@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
-import { SolutionsSection } from "@/components/home/SolutionsSection";
+import { WhatWeDo } from "@/components/home/WhatWeDo";
+import { Ecosystem } from "@/components/home/Ecosystem";
 import { SolutionsFinder } from "@/components/home/SolutionsFinder";
 import { CtaBand } from "@/components/shared/CtaBand";
 import { createMetadata } from "@/lib/seo";
@@ -16,7 +17,7 @@ export default function SolutionsPage() {
     <>
       <PageHero
         eyebrow="Solutions"
-        title="What we solve for organizations that need secure digital operations."
+        title="We engineer secure digital operations."
         lead="From cybersecurity and enterprise systems to transformation and infrastructure."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -27,7 +28,8 @@ export default function SolutionsPage() {
           { label: "Find your solution", href: "#finder", variant: "secondary" },
         ]}
       />
-      <SolutionsSection />
+      <WhatWeDo />
+      <Ecosystem />
       <SolutionsFinder />
       <CtaBand />
     </>

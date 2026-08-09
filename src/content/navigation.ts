@@ -11,14 +11,24 @@ export const primaryNav: NavItem[] = [
     href: "/solutions",
     children: [
       {
-        label: "What we solve",
-        href: "/solutions",
-        description: "Business outcomes across security, systems and infrastructure.",
+        label: "Cybersecurity",
+        href: "/services/cybersecurity",
+        description: "Security engineered into systems, identity and operations.",
       },
       {
-        label: "Solutions finder",
-        href: "/solutions#finder",
-        description: "Tell us what you need and get a tailored recommendation.",
+        label: "Enterprise Systems",
+        href: "/services/software-engineering",
+        description: "Business applications built around real workflows.",
+      },
+      {
+        label: "Digital Transformation",
+        href: "/services/digital-transformation",
+        description: "Modernize processes and connect fragmented systems.",
+      },
+      {
+        label: "Infrastructure",
+        href: "/services/cloud-infrastructure",
+        description: "Secure, resilient foundations for critical operations.",
       },
     ],
   },
@@ -26,13 +36,36 @@ export const primaryNav: NavItem[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Cybersecurity", href: "/services/cybersecurity" },
-      { label: "Software Engineering", href: "/services/software-engineering" },
-      { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
-      { label: "Digital Transformation", href: "/services/digital-transformation" },
-      { label: "IT Consulting", href: "/services/it-consulting" },
-      { label: "Network Infrastructure", href: "/services/network-infrastructure" },
-      { label: "Systems Integration", href: "/services/systems-integration" },
+      {
+        label: "Cybersecurity",
+        href: "/services/cybersecurity",
+        description: "Assessments, hardening and security readiness.",
+      },
+      {
+        label: "Software Engineering",
+        href: "/services/software-engineering",
+        description: "Custom platforms with security designed in.",
+      },
+      {
+        label: "Cloud & Infrastructure",
+        href: "/services/cloud-infrastructure",
+        description: "Hosting, resilience and operational ownership.",
+      },
+      {
+        label: "Network Architecture",
+        href: "/services/network-infrastructure",
+        description: "Segmentation, access and dependable connectivity.",
+      },
+      {
+        label: "Systems Integration",
+        href: "/services/systems-integration",
+        description: "Trusted data movement across platforms.",
+      },
+      {
+        label: "IT Consulting",
+        href: "/services/it-consulting",
+        description: "Clear decisions for architecture and delivery.",
+      },
     ],
   },
   {
@@ -42,114 +75,155 @@ export const primaryNav: NavItem[] = [
       {
         label: "SyntraxSec",
         href: "/products/syntraxsec",
-        description: "Cybersecurity training and operations platform.",
+        description: "Cybersecurity training and operations readiness.",
       },
       {
         label: "ENMS",
         href: "/products/enms",
-        description: "Education Network Management System for schools.",
+        description: "School management for academics, fees and records.",
       },
       {
         label: "POS",
         href: "/products/pos",
-        description: "Point of sale and business management.",
+        description: "Point of sale and multi-branch retail operations.",
       },
       {
         label: "Pharmacy PMS",
         href: "/products/pharmacy",
-        description: "Pharmacy operations and inventory management.",
+        description: "Inventory, dispensing and pharmacy control.",
       },
     ],
   },
-  { label: "Cybersecurity", href: "/services/cybersecurity" },
   {
     label: "Industries",
     href: "/industries",
     children: [
-      { label: "Financial Services", href: "/industries/financial-services" },
-      { label: "Education", href: "/industries/education" },
-      { label: "Government", href: "/industries/government" },
-      { label: "Retail", href: "/industries/retail" },
-      { label: "Healthcare", href: "/industries/healthcare" },
-      { label: "Manufacturing", href: "/industries/manufacturing" },
+      {
+        label: "Financial Services",
+        href: "/industries/financial-services",
+        description: "Controls, auditability and resilient channels.",
+      },
+      {
+        label: "Government",
+        href: "/industries/government",
+        description: "Secure systems for institutional delivery.",
+      },
+      {
+        label: "Education",
+        href: "/industries/education",
+        description: "Student operations and campus technology.",
+      },
+      {
+        label: "Healthcare",
+        href: "/industries/healthcare",
+        description: "Pharmacy and operational systems with care for data.",
+      },
+      {
+        label: "Retail",
+        href: "/industries/retail",
+        description: "Sales, stock and branch visibility.",
+      },
+      {
+        label: "Manufacturing",
+        href: "/industries/manufacturing",
+        description: "Reliable systems and segmented networks.",
+      },
     ],
   },
-  { label: "About", href: "/about" },
+  { label: "Insights", href: "/insights" },
   {
-    label: "Insights",
-    href: "/insights",
+    label: "Company",
+    href: "/about",
     children: [
-      { label: "Insights", href: "/insights" },
-      { label: "Resources", href: "/resources" },
-      { label: "Case studies", href: "/case-studies" },
-      { label: "Security & Trust", href: "/security" },
+      {
+        label: "About",
+        href: "/about",
+        description: "Mission, approach and regional focus.",
+      },
+      {
+        label: "Careers",
+        href: "/careers",
+        description: "Build serious technology with Syntrax.",
+      },
+      {
+        label: "Trust Center",
+        href: "/security",
+        description: "Security philosophy and disclosure.",
+      },
+      {
+        label: "Contact",
+        href: "/contact",
+        description: "Start a conversation with our team.",
+      },
     ],
   },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const mobileNavSections = [
   {
-    label: "Products",
-    items: [
-      { label: "All products", href: "/products" },
-      { label: "SyntraxSec", href: "/products/syntraxsec" },
-      { label: "ENMS", href: "/products/enms" },
-      { label: "POS", href: "/products/pos" },
-      { label: "Pharmacy PMS", href: "/products/pharmacy" },
-    ],
+    label: "Solutions",
+    items: primaryNav[0].children!.map((item) => ({
+      label: item.label,
+      href: item.href,
+    })),
   },
   {
     label: "Services",
     items: [
       { label: "All services", href: "/services" },
-      { label: "Cybersecurity", href: "/services/cybersecurity" },
-      { label: "Software Engineering", href: "/services/software-engineering" },
-      { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
-      { label: "Digital Transformation", href: "/services/digital-transformation" },
-      { label: "IT Consulting", href: "/services/it-consulting" },
-      { label: "Network Infrastructure", href: "/services/network-infrastructure" },
-      { label: "Systems Integration", href: "/services/systems-integration" },
+      ...primaryNav[1].children!.map((item) => ({
+        label: item.label,
+        href: item.href,
+      })),
+    ],
+  },
+  {
+    label: "Products",
+    items: [
+      { label: "All products", href: "/products" },
+      ...primaryNav[2].children!.map((item) => ({
+        label: item.label,
+        href: item.href,
+      })),
     ],
   },
   {
     label: "Industries",
     items: [
       { label: "All industries", href: "/industries" },
-      { label: "Financial Services", href: "/industries/financial-services" },
-      { label: "Education", href: "/industries/education" },
-      { label: "Government", href: "/industries/government" },
-      { label: "Retail", href: "/industries/retail" },
-      { label: "Healthcare", href: "/industries/healthcare" },
-      { label: "Manufacturing", href: "/industries/manufacturing" },
+      ...primaryNav[3].children!.map((item) => ({
+        label: item.label,
+        href: item.href,
+      })),
     ],
   },
   {
-    label: "Resources",
+    label: "Company",
     items: [
+      { label: "About", href: "/about" },
       { label: "Insights", href: "/insights" },
-      { label: "Resources hub", href: "/resources" },
-      { label: "Support center", href: "/support" },
-      { label: "Security & Trust", href: "/security" },
-      { label: "System status", href: "/status" },
+      { label: "Trust Center", href: "/security" },
       { label: "Careers", href: "/careers" },
-      { label: "Client portal", href: "/client-portal" },
+      { label: "Support", href: "/support" },
+      { label: "Client Portal", href: "/client-portal" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ] as const;
 
 export const footerNav = {
-  company: [
-    { label: "About", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
-    { label: "Client portal", href: "/client-portal" },
-  ],
   solutions: [
     { label: "Cybersecurity", href: "/services/cybersecurity" },
     { label: "Enterprise Systems", href: "/services/software-engineering" },
     { label: "Digital Transformation", href: "/services/digital-transformation" },
     { label: "Infrastructure", href: "/services/cloud-infrastructure" },
+  ],
+  services: [
+    { label: "Software Engineering", href: "/services/software-engineering" },
+    { label: "Cloud Infrastructure", href: "/services/cloud-infrastructure" },
+    { label: "Network Architecture", href: "/services/network-infrastructure" },
+    { label: "Systems Integration", href: "/services/systems-integration" },
+    { label: "IT Consulting", href: "/services/it-consulting" },
   ],
   products: [
     { label: "SyntraxSec", href: "/products/syntraxsec" },
@@ -162,19 +236,30 @@ export const footerNav = {
     { label: "Education", href: "/industries/education" },
     { label: "Government", href: "/industries/government" },
     { label: "Healthcare", href: "/industries/healthcare" },
+    { label: "Retail", href: "/industries/retail" },
   ],
   resources: [
     { label: "Insights", href: "/insights" },
     { label: "Resources", href: "/resources" },
-    { label: "Documentation", href: "/resources#documentation" },
     { label: "Support", href: "/support" },
     { label: "Status", href: "/status" },
+  ],
+  company: [
+    { label: "About", href: "/about" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
+    { label: "Client Portal", href: "/client-portal" },
+  ],
+  security: [
+    { label: "Trust Center", href: "/security" },
+    { label: "Disclosure", href: "/security/disclosure" },
+    { label: "Advisories", href: "/security/advisories" },
+    { label: "Privacy", href: "/privacy" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
     { label: "Cookie Policy", href: "/cookies" },
-    { label: "Security", href: "/security" },
     { label: "Accessibility", href: "/accessibility" },
   ],
 } as const;

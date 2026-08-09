@@ -1,49 +1,49 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/shared/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const items = [
-  {
-    title: "Secure by Design",
-    text: "Security is engineered into systems, access models and delivery practices from the start.",
-  },
-  {
-    title: "Enterprise Ready",
-    text: "Built for institutions and businesses that need clarity, accountability and operational discipline.",
-  },
-  {
-    title: "Scalable Architecture",
-    text: "Platforms and infrastructure designed to grow with demand without losing control.",
-  },
-  {
-    title: "Local Expertise",
-    text: "East African context with delivery standards suited to serious organizational partners.",
-  },
+const sections = [
+  "Security",
+  "Privacy",
+  "Infrastructure",
+  "Data protection",
+  "Secure development",
+  "Incident response",
+  "Business continuity",
+  "Vulnerability disclosure",
 ];
 
 export function TrustSection() {
   return (
-    <section className="section">
-      <div className="container">
+    <section className="section bg-[var(--deep-2)]">
+      <div className="container grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-end">
         <Reveal>
-          <SectionHeading
-            eyebrow="Credibility"
-            title="Technology built for organizations that cannot afford to stop."
-            lead="Syntrax combines cybersecurity discipline, software craftsmanship and practical delivery for institutions and businesses across East Africa."
-          />
+          <div className="eyebrow">Trust Center</div>
+          <h2 className="section-title mt-4">Syntrax Trust Center</h2>
+          <p className="lead">
+            Because cybersecurity is part of our identity, trust is published as a practice —
+            not a slogan.
+          </p>
+          <Link
+            href="/security"
+            className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)]"
+          >
+            Enter Trust Center
+            <ArrowRight className="size-4 transition group-hover:translate-x-1" />
+          </Link>
         </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {items.map((item, index) => (
-            <Reveal key={item.title} delay={index * 80}>
-              <article className="h-full border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] transition hover:border-[var(--royal)]/35 hover:shadow-[var(--shadow)]">
-                <div className="text-xs font-bold tracking-[0.16em] text-[var(--royal)]">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <h3 className="mt-4 text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>
-                <p className="mt-3 text-sm text-[var(--text-muted)]">{item.text}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={80}>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {sections.map((item) => (
+              <li
+                key={item}
+                className="border border-[var(--border)] bg-[var(--deep)] px-4 py-5 text-sm font-semibold tracking-[0.02em]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

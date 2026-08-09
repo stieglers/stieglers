@@ -1,4 +1,3 @@
-import { PageHero } from "@/components/shared/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { siteConfig } from "@/content/site";
 import { createMetadata } from "@/lib/seo";
@@ -6,80 +5,72 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Contact",
   description:
-    "Contact Syntrax Technologies in Dar es Salaam for sales, cybersecurity, support, partnerships and general inquiries.",
+    "Contact Syntrax Technologies for sales, cybersecurity, support, partnerships and general inquiries.",
   path: "/contact",
 });
 
+const departments = ["Sales", "Cybersecurity", "Technical Support", "Partnerships"];
+
 export default function ContactPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Contact"
-        title="Talk to the Syntrax team."
-        lead="Reach sales, cybersecurity, technical support, partnerships or general inquiry channels."
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Contact" },
-        ]}
-      />
-      <section className="section">
-        <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <aside className="space-y-6">
-            <div className="border border-[var(--border)] bg-[var(--bg-elevated)] p-6">
-              <h2 className="text-lg font-semibold">Office</h2>
-              <p className="mt-3 text-sm text-[var(--text-muted)]">{siteConfig.address.display}</p>
-              <p className="mt-2 text-sm text-[var(--text-muted)]">{siteConfig.hours}</p>
-            </div>
-            <div className="border border-[var(--border)] bg-[var(--bg-elevated)] p-6">
-              <h2 className="text-lg font-semibold">Direct contact</h2>
-              <ul className="mt-3 space-y-2 text-sm text-[var(--text-muted)]">
-                <li>
-                  Email:{" "}
-                  <a className="text-[var(--blue)]" href={`mailto:${siteConfig.email.general}`}>
-                    {siteConfig.email.general}
-                  </a>
-                </li>
-                <li>
-                  Security:{" "}
-                  <a className="text-[var(--blue)]" href={`mailto:${siteConfig.email.security}`}>
-                    {siteConfig.email.security}
-                  </a>
-                </li>
-                <li>
-                  Phone:{" "}
-                  <a className="text-[var(--blue)]" href={`tel:${siteConfig.phone.e164}`}>
-                    {siteConfig.phone.display}
-                  </a>
-                </li>
-                <li>
-                  WhatsApp:{" "}
-                  <a
-                    className="text-[var(--blue)]"
-                    href={`https://wa.me/${siteConfig.phone.whatsapp}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {siteConfig.phone.display}
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="border border-dashed border-[var(--border-strong)] bg-[var(--bg-elevated)] p-6 text-sm text-[var(--text-muted)]">
-              Interactive map can be added when a precise public office pin is approved for
-              publication. Currently we list city and country only.
-            </div>
-          </aside>
-          <div className="border border-[var(--border)] bg-[var(--bg-elevated)] p-6 md:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.03em]">Send a message</h2>
-            <p className="mt-2 text-sm text-[var(--text-muted)]">
-              Select a department so your inquiry reaches the right team.
+    <section className="pt-[var(--header-h)]">
+      <div className="grid min-h-[calc(100svh-var(--header-h))] lg:grid-cols-2">
+        <div className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--deep)] px-6 py-16 md:px-12 lg:border-r lg:border-b-0 lg:py-24">
+          <div className="absolute inset-0 tech-grid opacity-20" aria-hidden />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(600px 320px at 20% 20%, rgba(10,0,244,0.35), transparent 65%)",
+            }}
+            aria-hidden
+          />
+          <div className="relative max-w-xl">
+            <div className="eyebrow">Contact</div>
+            <h1 className="mt-5 text-[clamp(2.8rem,6vw,5.5rem)] font-semibold tracking-[-0.045em]">
+              Let&apos;s build something secure.
+            </h1>
+            <p className="mt-6 text-lg text-[var(--text-muted)]">
+              Tell us about your organization, systems and objectives. Our team will route your
+              inquiry to the right practice.
             </p>
-            <div className="mt-6">
+            <ul className="mt-10 space-y-3">
+              {departments.map((item) => (
+                <li
+                  key={item}
+                  className="border border-[var(--border)] bg-[rgba(12,18,43,0.7)] px-4 py-3 text-sm font-semibold tracking-[0.04em]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 space-y-2 text-sm text-[var(--muted)]">
+              <p>{siteConfig.address.display}</p>
+              <p>
+                <a href={`mailto:${siteConfig.email.general}`} className="hover:text-[var(--brand)]">
+                  {siteConfig.email.general}
+                </a>
+              </p>
+              <p>
+                <a href={`tel:${siteConfig.phone.e164}`} className="hover:text-[var(--brand)]">
+                  {siteConfig.phone.display}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--bg-muted)] px-6 py-16 md:px-12 lg:py-24">
+          <div className="mx-auto max-w-xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.03em]">Send an inquiry</h2>
+            <p className="mt-3 text-sm text-[var(--text-muted)]">
+              Select a department so your message reaches the right team.
+            </p>
+            <div className="mt-8">
               <ContactForm />
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

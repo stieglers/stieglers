@@ -22,11 +22,12 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
+  root.classList.toggle("light", theme === "light");
   root.style.colorScheme = theme;
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("syntrax-theme") as Theme | null;
@@ -35,10 +36,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       applyTheme(stored);
       return;
     }
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = prefersDark ? "dark" : "light";
-    setThemeState(initial);
-    applyTheme(initial);
+    // Dark-first brand experience
+    setThemeState("dark");
+    applyTheme("dark");
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
