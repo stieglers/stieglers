@@ -11,16 +11,16 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(115deg, rgba(13,59,130,0.96) 0%, rgba(18,73,156,0.92) 48%, rgba(29,95,208,0.88) 100%)",
+            "linear-gradient(118deg, #030d1f 0%, #06162e 34%, #062a5c 72%, #08356f 100%)",
         }}
         aria-hidden
       />
-      <div className="absolute inset-0 grid-lines opacity-20 mix-blend-soft-light" aria-hidden />
+      <div className="absolute inset-0 grid-lines opacity-15 mix-blend-soft-light" aria-hidden />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(700px 340px at 18% 20%, rgba(61,183,245,0.22), transparent 60%), radial-gradient(560px 280px at 88% 10%, rgba(255,255,255,0.12), transparent 55%)",
+            "radial-gradient(700px 340px at 18% 20%, rgba(42,164,223,0.16), transparent 60%), radial-gradient(560px 280px at 88% 10%, rgba(255,255,255,0.08), transparent 55%)",
         }}
         aria-hidden
       />

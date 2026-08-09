@@ -18,12 +18,12 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-[var(--royal)] text-white hover:bg-[var(--royal-2)] shadow-[var(--shadow-sm)]",
+    "bg-[var(--navy-2)] text-white hover:bg-[var(--royal)] shadow-[var(--shadow-sm)]",
   secondary:
-    "bg-transparent text-[var(--heading)] border border-[var(--border-strong)] hover:border-[var(--royal)] hover:text-[var(--royal)]",
+    "bg-transparent text-[var(--heading)] border border-[var(--border-strong)] hover:border-[var(--navy-2)] hover:text-[var(--navy-2)]",
   ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--accent-soft)]",
   inverse:
-    "bg-white text-[var(--navy)] hover:bg-[#eef4ff] shadow-[var(--shadow-sm)]",
+    "bg-white text-[var(--navy)] hover:bg-[#e8eef8] shadow-[var(--shadow-sm)]",
 };
 
 const sizes = {

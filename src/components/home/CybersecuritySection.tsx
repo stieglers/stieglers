@@ -4,7 +4,7 @@ import { SecurityLayers } from "@/components/visuals/SecurityLayers";
 
 export function CybersecuritySection() {
   return (
-    <section className="section bg-[linear-gradient(160deg,var(--navy)_0%,var(--navy-2)_45%,var(--royal)_120%)] text-white">
+    <section className="section bg-[linear-gradient(160deg,#030d1f_0%,#06162e_50%,#062a5c_120%)] text-white">
       <div className="container">
         <Reveal>
           <div className="max-w-3xl">
