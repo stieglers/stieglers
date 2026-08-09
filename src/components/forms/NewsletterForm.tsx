@@ -50,8 +50,8 @@ export function NewsletterForm() {
 
   return (
     <div>
-      <h3 className="text-lg font-semibold text-white">Stay ahead of technology.</h3>
-      <p className="mt-2 max-w-md text-sm text-slate-400">
+      <h3 className="text-lg font-semibold text-[var(--heading)]">Stay ahead of technology.</h3>
+      <p className="mt-2 max-w-md text-sm text-[var(--text-muted)]">
         Practical updates on cybersecurity, infrastructure and digital operations.
       </p>
       <form className="mt-5 space-y-4" onSubmit={onSubmit} noValidate>
@@ -70,7 +70,7 @@ export function NewsletterForm() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Work email"
-          className="h-12 w-full border border-white/15 bg-white/5 px-3 text-white outline-none placeholder:text-slate-500 focus:border-[var(--brand)]"
+          className="h-12 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg)] px-3 text-[var(--heading)] outline-none placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]"
         />
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => {
@@ -79,10 +79,10 @@ export function NewsletterForm() {
               <button
                 key={category}
                 type="button"
-                className={`border px-2.5 py-1 text-xs font-semibold ${
+                className={`rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
                   active
-                    ? "border-[var(--brand)] text-[var(--brand)]"
-                    : "border-white/15 text-slate-400"
+                    ? "border-[var(--brand)] bg-[var(--brand-soft)] text-[var(--brand)]"
+                    : "border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--brand)]/40"
                 }`}
                 onClick={() =>
                   setSelected((current) =>
@@ -97,7 +97,7 @@ export function NewsletterForm() {
             );
           })}
         </div>
-        <label className="flex items-start gap-2 text-xs text-slate-400">
+        <label className="flex items-start gap-2 text-xs text-[var(--text-muted)]">
           <input
             type="checkbox"
             checked={consent}
@@ -105,16 +105,20 @@ export function NewsletterForm() {
             className="mt-0.5"
           />
           <span>
-            I agree to receive Syntrax updates and understand I can unsubscribe at any time.
-            See our <a href="/privacy" className="underline">Privacy Policy</a>.
+            I agree to receive Syntrax updates and understand I can unsubscribe at any time. See
+            our{" "}
+            <a href="/privacy" className="underline">
+              Privacy Policy
+            </a>
+            .
           </span>
         </label>
-        <Button type="submit" variant="inverse" disabled={status === "loading"}>
+        <Button type="submit" disabled={status === "loading"}>
           {status === "loading" ? "Subscribing..." : "Subscribe"}
         </Button>
         {message ? (
           <p
-            className={`text-sm ${status === "error" ? "text-red-300" : "text-emerald-300"}`}
+            className={`text-sm ${status === "error" ? "text-[var(--danger)]" : "text-[var(--success)]"}`}
             role="status"
           >
             {message}

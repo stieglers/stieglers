@@ -72,7 +72,7 @@ export function ServicesSection() {
             From cybersecurity and engineering to infrastructure, integration and transformation —
             delivered with enterprise discipline.
           </p>
-          <div className="mt-10 border border-[var(--border)] bg-[var(--surface)] p-6">
+          <div className="mt-10 rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)]">
             <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
               Selected
             </p>
@@ -100,7 +100,9 @@ export function ServicesSection() {
                   onClick={() => setActive(index)}
                   className={cn(
                     "flex w-full items-center justify-between gap-4 py-5 text-left transition",
-                    active === index ? "text-white" : "text-[var(--muted)] hover:text-white",
+                    active === index
+                      ? "text-[var(--heading)]"
+                      : "text-[var(--text-muted)] hover:text-[var(--heading)]",
                   )}
                 >
                   <span className="text-xl font-semibold tracking-[-0.02em] md:text-2xl">

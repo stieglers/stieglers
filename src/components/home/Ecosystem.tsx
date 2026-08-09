@@ -70,11 +70,13 @@ export function Ecosystem() {
   const active = nodes.find((node) => node.id === activeId) ?? nodes[0];
 
   return (
-    <section className="section bg-[var(--deep-2)]">
+    <section className="section bg-[var(--bg-muted)]">
       <div className="container">
         <Reveal>
           <div className="eyebrow">Syntrax ecosystem</div>
-          <h2 className="section-title mt-4">One technology practice. Multiple connected capabilities.</h2>
+          <h2 className="section-title mt-4">
+            One technology practice. Multiple connected capabilities.
+          </h2>
           <p className="lead">
             Syntrax is an integrated technology company — products, services and security
             engineered to work as one system.
@@ -82,16 +84,22 @@ export function Ecosystem() {
         </Reveal>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="relative min-h-[420px] border border-[var(--border)] bg-[var(--deep)] p-6 md:p-10">
-            <div className="absolute inset-0 tech-grid opacity-25" aria-hidden />
+          <div className="relative min-h-[420px] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] md:p-10">
+            <div className="absolute inset-0 tech-grid opacity-40" aria-hidden />
             <div className="relative grid h-full place-items-center">
-              <div className="absolute inset-[12%] rounded-full border border-[rgba(10,0,244,0.35)]" aria-hidden />
-              <div className="absolute inset-[26%] rounded-full border border-[rgba(10,0,244,0.22)]" aria-hidden />
-              <div className="z-10 border border-[var(--brand)] bg-[rgba(10,0,244,0.18)] px-6 py-5 text-center shadow-[0_0_40px_rgba(10,0,244,0.35)]">
-                <div className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+              <div
+                className="absolute inset-[12%] rounded-full border border-[rgba(10,0,244,0.2)]"
+                aria-hidden
+              />
+              <div
+                className="absolute inset-[26%] rounded-full border border-[rgba(10,0,244,0.12)]"
+                aria-hidden
+              />
+              <div className="z-10 rounded-2xl border border-[var(--brand)]/30 bg-[var(--brand-soft)] px-6 py-5 text-center">
+                <div className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
                   Center
                 </div>
-                <div className="mt-2 text-xl font-semibold tracking-[-0.03em]">
+                <div className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[var(--heading)]">
                   Syntrax Technologies
                 </div>
               </div>
@@ -109,10 +117,10 @@ export function Ecosystem() {
                       onClick={() => setActiveId(node.id)}
                       onMouseEnter={() => setActiveId(node.id)}
                       className={cn(
-                        "absolute -translate-x-1/2 -translate-y-1/2 border px-3 py-2 text-xs font-semibold tracking-[0.04em] transition",
+                        "absolute -translate-x-1/2 -translate-y-1/2 rounded-full border px-3 py-2 text-xs font-semibold tracking-[0.02em] transition",
                         isActive
-                          ? "border-[var(--brand)] bg-[var(--brand)] text-white"
-                          : "border-[var(--border)] bg-[var(--surface)] text-[var(--text)] hover:border-[var(--brand)]",
+                          ? "border-[var(--brand)] bg-[var(--brand)] text-white shadow-[0_10px_24px_rgba(10,0,244,0.25)]"
+                          : "border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--heading)] hover:border-[var(--brand)]",
                       )}
                       style={{ left: `${x}%`, top: `${y}%` }}
                     >
@@ -124,15 +132,18 @@ export function Ecosystem() {
             </div>
           </div>
 
-          <div className="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
-            <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] md:p-8">
+            <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
               Selected capability
             </p>
             <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">{active.label}</h3>
             <p className="mt-4 text-[var(--text-muted)]">{active.description}</p>
             <ul className="mt-6 space-y-2">
               {active.capabilities.map((item) => (
-                <li key={item} className="border border-[var(--border)] px-4 py-3 text-sm">
+                <li
+                  key={item}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] px-4 py-3 text-sm"
+                >
                   {item}
                 </li>
               ))}

@@ -105,15 +105,15 @@ export function WhatWeDo() {
             })}
           </div>
 
-          <div className="border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8">
-            <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] md:p-8">
+            <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
               Capability map
             </p>
             <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">{current.title}</h3>
             <div className="mt-8 space-y-3">
               {current.visual.map((layer, index) => (
                 <div key={layer} className="flex items-center gap-3">
-                  <div className="w-full border border-[var(--border)] bg-[rgba(10,0,244,0.08)] px-4 py-3 text-sm font-semibold tracking-[0.04em]">
+                  <div className="w-full rounded-xl border border-[var(--border)] bg-[var(--brand-soft)] px-4 py-3 text-sm font-semibold tracking-[0.04em]">
                     {layer}
                   </div>
                   {index < current.visual.length - 1 ? (

@@ -7,6 +7,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  type ReactNode,
 } from "react";
 
 type Theme = "light" | "dark";
@@ -26,19 +27,14 @@ function applyTheme(theme: Theme) {
   root.style.colorScheme = theme;
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("syntrax-theme") as Theme | null;
-    if (stored === "light" || stored === "dark") {
-      setThemeState(stored);
-      applyTheme(stored);
-      return;
-    }
-    // Dark-first brand experience
-    setThemeState("dark");
-    applyTheme("dark");
+    const next = stored === "dark" || stored === "light" ? stored : "light";
+    setThemeState(next);
+    applyTheme(next);
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
@@ -60,7 +56,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useTheme() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
-  return ctx;
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within ThemeProvider");
+  }
+  return context;
 }

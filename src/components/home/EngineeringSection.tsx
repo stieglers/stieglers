@@ -14,7 +14,7 @@ const controls = ["Access control", "Encryption", "Logging", "Segmentation", "Mo
 
 export function EngineeringSection() {
   return (
-    <section className="section bg-[var(--deep-2)]">
+    <section className="section bg-[var(--bg-muted)]">
       <div className="container">
         <Reveal>
           <div className="eyebrow">Technology architecture</div>
@@ -27,11 +27,11 @@ export function EngineeringSection() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.85fr]">
           <Reveal>
-            <div className="border border-[var(--border)] bg-[var(--deep)] p-6 md:p-8">
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] md:p-8">
               <ol className="space-y-0">
                 {layers.map((layer, index) => (
                   <li key={layer}>
-                    <div className="flex items-center justify-between border border-[var(--border)] px-4 py-4">
+                    <div className="flex items-center justify-between rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] px-4 py-4">
                       <span className="text-lg font-semibold">{layer}</span>
                       <span className="text-xs tracking-[0.16em] text-[var(--brand)]">
                         {String(index + 1).padStart(2, "0")}
@@ -48,8 +48,8 @@ export function EngineeringSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="border border-[var(--brand)] bg-[rgba(10,0,244,0.1)] p-6 md:p-8">
-              <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+            <div className="rounded-2xl border border-[var(--brand)]/25 bg-[var(--brand-soft)] p-6 md:p-8">
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
                 Security envelope
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">
@@ -61,7 +61,10 @@ export function EngineeringSection() {
               </p>
               <ul className="mt-8 space-y-3">
                 {controls.map((item) => (
-                  <li key={item} className="border border-[var(--border)] bg-[var(--deep)] px-4 py-3">
+                  <li
+                    key={item}
+                    className="rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-3"
+                  >
                     {item}
                   </li>
                 ))}

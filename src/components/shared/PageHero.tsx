@@ -20,23 +20,22 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative overflow-hidden border-b border-[var(--border)] pt-[calc(var(--header-h)+2rem)] pb-14",
+        "relative overflow-hidden border-b border-[var(--border)] pt-[calc(var(--header-h)+2.5rem)] pb-14",
         className,
       )}
     >
-      <div className="absolute inset-0 tech-grid opacity-20" aria-hidden />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(700px 300px at 10% 0%, rgba(10,0,244,0.22), transparent 60%)",
+            "radial-gradient(720px 280px at 8% 0%, rgba(10,0,244,0.08), transparent 60%)",
         }}
         aria-hidden
       />
       <div className="container relative">
         {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
-        {eyebrow ? <div className="eyebrow">{eyebrow}</div> : null}
-        <h1 className="mt-4 max-w-4xl text-[clamp(2.4rem,5.5vw,4.75rem)] font-semibold tracking-[-0.045em]">
+        {eyebrow ? <div className="eyebrow mt-4">{eyebrow}</div> : null}
+        <h1 className="mt-4 max-w-4xl text-[clamp(2.3rem,5vw,4.25rem)] font-bold tracking-[-0.045em]">
           {title}
         </h1>
         {lead ? <p className="lead">{lead}</p> : null}

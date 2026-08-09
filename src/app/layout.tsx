@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LocaleProvider } from "@/components/providers/LocaleProvider";
 import { SiteShell } from "@/components/layout/SiteShell";
@@ -7,13 +7,13 @@ import { createMetadata, organizationJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
-const heading = Manrope({
+const heading = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Inter({
+const body = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -39,11 +39,11 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('syntrax-theme');var dark=t!=='light';document.documentElement.classList.toggle('dark',dark);document.documentElement.classList.toggle('light',!dark);document.documentElement.style.colorScheme=dark?'dark':'light';}catch(e){document.documentElement.classList.add('dark');}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('syntrax-theme');var dark=t==='dark';document.documentElement.classList.toggle('dark',dark);document.documentElement.classList.toggle('light',!dark);document.documentElement.style.colorScheme=dark?'dark':'light';}catch(e){document.documentElement.classList.add('light');}})();`,
           }}
         />
       </head>
-      <body className={`${heading.variable} ${body.variable} antialiased`}>
+      <body className={`${heading.variable} ${body.variable} bg-[var(--bg)] text-[var(--text)] antialiased`}>
         <ThemeProvider>
           <LocaleProvider>
             <SiteShell>{children}</SiteShell>

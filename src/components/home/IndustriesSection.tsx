@@ -4,7 +4,7 @@ import { Reveal } from "@/components/shared/Reveal";
 
 export function IndustriesSection() {
   return (
-    <section className="section bg-[var(--deep-2)]">
+    <section className="section">
       <div className="container">
         <Reveal>
           <div className="eyebrow">Industries</div>

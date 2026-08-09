@@ -15,19 +15,18 @@ export default function ContactPage() {
   return (
     <section className="pt-[var(--header-h)]">
       <div className="grid min-h-[calc(100svh-var(--header-h))] lg:grid-cols-2">
-        <div className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--deep)] px-6 py-16 md:px-12 lg:border-r lg:border-b-0 lg:py-24">
-          <div className="absolute inset-0 tech-grid opacity-20" aria-hidden />
+        <div className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-16 md:px-12 lg:border-r lg:border-b-0 lg:py-24">
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(600px 320px at 20% 20%, rgba(10,0,244,0.35), transparent 65%)",
+                "radial-gradient(600px 320px at 20% 20%, rgba(10,0,244,0.10), transparent 65%)",
             }}
             aria-hidden
           />
           <div className="relative max-w-xl">
             <div className="eyebrow">Contact</div>
-            <h1 className="mt-5 text-[clamp(2.8rem,6vw,5.5rem)] font-semibold tracking-[-0.045em]">
+            <h1 className="mt-5 text-[clamp(2.6rem,5.5vw,4.75rem)] font-bold tracking-[-0.045em]">
               Let&apos;s build something secure.
             </h1>
             <p className="mt-6 text-lg text-[var(--text-muted)]">
@@ -38,16 +37,19 @@ export default function ContactPage() {
               {departments.map((item) => (
                 <li
                   key={item}
-                  className="border border-[var(--border)] bg-[rgba(12,18,43,0.7)] px-4 py-3 text-sm font-semibold tracking-[0.04em]"
+                  className="rounded-xl border border-[var(--border)] bg-[var(--brand-soft)] px-4 py-3 text-sm font-semibold tracking-[0.04em]"
                 >
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="mt-10 space-y-2 text-sm text-[var(--muted)]">
+            <div className="mt-10 space-y-2 text-sm text-[var(--text-muted)]">
               <p>{siteConfig.address.display}</p>
               <p>
-                <a href={`mailto:${siteConfig.email.general}`} className="hover:text-[var(--brand)]">
+                <a
+                  href={`mailto:${siteConfig.email.general}`}
+                  className="hover:text-[var(--brand)]"
+                >
                   {siteConfig.email.general}
                 </a>
               </p>

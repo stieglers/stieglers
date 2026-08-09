@@ -12,26 +12,26 @@ export function Footer() {
     : null;
 
   return (
-    <footer className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--deep)] text-[var(--muted)]">
+    <footer className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--bg-elevated)]">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(700px 280px at 10% 0%, rgba(10,0,244,0.22), transparent 55%)",
+            "radial-gradient(720px 280px at 8% 0%, rgba(10,0,244,0.07), transparent 55%)",
         }}
         aria-hidden
       />
-      <div className="container relative section">
-        <div className="max-w-4xl">
+      <div className="container relative section !pb-12">
+        <div className="max-w-3xl">
           <Logo />
-          <p className="mt-8 text-[clamp(2.2rem,5vw,4.5rem)] font-semibold tracking-[-0.045em] text-white">
+          <p className="mt-8 font-[family-name:var(--font-heading)] text-[clamp(2rem,4.5vw,3.75rem)] font-bold tracking-[-0.045em] text-[var(--heading)]">
             Secure systems.
             <br />
             Confident digital operations.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
           <FooterColumn title="Solutions" items={footerNav.solutions} />
           <FooterColumn title="Services" items={footerNav.services} />
           <FooterColumn title="Products" items={footerNav.products} />
@@ -40,12 +40,15 @@ export function Footer() {
           <FooterColumn title="Company" items={footerNav.company} />
           <FooterColumn title="Security" items={footerNav.security} />
           <div>
-            <h3 className="text-[11px] font-semibold tracking-[0.18em] text-white uppercase">
+            <h3 className="text-[11px] font-semibold tracking-[0.16em] text-[var(--heading)] uppercase">
               Contact
             </h3>
-            <ul className="mt-4 space-y-3 text-sm">
+            <ul className="mt-4 space-y-3 text-sm text-[var(--text-muted)]">
               <li>
-                <a href={`mailto:${siteConfig.email.general}`} className="hover:text-[var(--brand)]">
+                <a
+                  href={`mailto:${siteConfig.email.general}`}
+                  className="hover:text-[var(--brand)]"
+                >
                   {siteConfig.email.general}
                 </a>
               </li>
@@ -64,7 +67,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
-                  className="inline-flex size-9 items-center justify-center rounded-full border border-white/25 text-white hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                  className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--border-strong)] text-[var(--heading)] transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
                 >
                   <WhatsAppIcon className="size-3.5" />
                 </a>
@@ -72,14 +75,14 @@ export function Footer() {
               <a
                 href={`tel:${siteConfig.phone.e164}`}
                 aria-label="Call"
-                className="inline-flex size-9 items-center justify-center rounded-full border border-white/25 text-white hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--border-strong)] text-[var(--heading)] transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
               >
                 <Phone className="size-3.5" />
               </a>
               <a
                 href={`mailto:${siteConfig.email.general}`}
                 aria-label="Email"
-                className="inline-flex size-9 items-center justify-center rounded-full border border-white/25 text-white hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--border-strong)] text-[var(--heading)] transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
               >
                 <Mail className="size-3.5" />
               </a>
@@ -87,17 +90,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-10 border-t border-[var(--border)] pt-10 lg:grid-cols-[1.2fr_1fr]">
+        <div className="mt-14 grid gap-10 border-t border-[var(--border)] pt-10 lg:grid-cols-[1.2fr_1fr]">
           <NewsletterForm />
-          <div className="flex flex-col justify-between gap-4 text-sm lg:items-end lg:text-right">
+          <div className="flex flex-col justify-between gap-4 text-sm text-[var(--text-muted)] lg:items-end lg:text-right">
             <div className="flex flex-wrap gap-4 lg:justify-end">
               {footerNav.legal.map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-white">
+                <Link key={item.href} href={item.href} className="hover:text-[var(--heading)]">
                   {item.label}
                 </Link>
               ))}
             </div>
-            <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
@@ -114,11 +119,16 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="text-[11px] font-semibold tracking-[0.18em] text-white uppercase">{title}</h3>
+      <h3 className="text-[11px] font-semibold tracking-[0.16em] text-[var(--heading)] uppercase">
+        {title}
+      </h3>
       <ul className="mt-4 space-y-2.5">
         {items.map((item) => (
           <li key={item.href + item.label}>
-            <Link href={item.href} className="text-sm transition hover:text-[var(--brand)]">
+            <Link
+              href={item.href}
+              className="text-sm text-[var(--text-muted)] transition hover:text-[var(--brand)]"
+            >
               {item.label}
             </Link>
           </li>

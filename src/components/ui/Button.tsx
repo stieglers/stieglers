@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 type ButtonProps = {
   href?: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "inverse";
+  variant?: "primary" | "secondary" | "ghost" | "inverse" | "outline";
   size?: "sm" | "md" | "lg";
   className?: string;
   arrow?: boolean;
@@ -18,18 +18,20 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-[var(--brand)] text-white hover:bg-[var(--brand-hover)] shadow-[0_0_0_1px_rgba(10,0,244,0.4),0_12px_40px_rgba(10,0,244,0.28)]",
+    "bg-[var(--brand)] text-white shadow-[0_10px_28px_rgba(10,0,244,0.22)] hover:bg-[var(--brand-hover)] hover:shadow-[0_14px_32px_rgba(10,0,244,0.28)]",
   secondary:
-    "bg-transparent text-[var(--heading)] border border-[var(--border-strong)] hover:border-[var(--brand)] hover:text-[var(--brand)]",
-  ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--accent-soft)]",
+    "border border-[var(--border-strong)] bg-[var(--bg-elevated)] text-[var(--heading)] hover:border-[var(--brand)]/35 hover:bg-[var(--bg-muted)]",
+  ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--brand-soft)]",
+  outline:
+    "border border-[var(--border-strong)] bg-transparent text-[var(--heading)] hover:border-[var(--brand)]/40 hover:text-[var(--brand)]",
   inverse:
-    "bg-white text-[var(--deep)] hover:bg-[var(--soft)] shadow-[0_10px_30px_rgba(0,0,0,0.2)]",
+    "bg-white text-[var(--bg-dark)] shadow-[0_10px_28px_rgba(0,0,0,0.16)] hover:bg-[var(--bg-muted)]",
 };
 
 const sizes = {
-  sm: "h-10 px-4 text-[13px]",
-  md: "h-12 px-5 text-[15px]",
-  lg: "h-14 px-6 text-base",
+  sm: "h-9 px-3.5 text-sm",
+  md: "h-11 px-5 text-[0.95rem]",
+  lg: "h-12 px-6 text-base",
 };
 
 export function Button({
@@ -46,7 +48,7 @@ export function Button({
   "aria-label": ariaLabel,
 }: ButtonProps) {
   const classes = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-[var(--radius)] font-semibold tracking-[-0.01em] transition-all duration-250 disabled:opacity-60 disabled:pointer-events-none",
+    "group inline-flex items-center justify-center gap-2 rounded-xl font-semibold tracking-[-0.01em] transition duration-200 disabled:pointer-events-none disabled:opacity-60",
     variants[variant],
     sizes[size],
     className,
@@ -57,7 +59,7 @@ export function Button({
       <span>{children}</span>
       {arrow ? (
         <ArrowRight
-          className="size-4 transition-transform duration-250 group-hover:translate-x-1"
+          className="size-4 transition-transform duration-200 group-hover:translate-x-1"
           aria-hidden
         />
       ) : null}

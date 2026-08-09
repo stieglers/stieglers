@@ -9,11 +9,13 @@ import { SearchDialog } from "@/components/layout/SearchDialog";
 import { Button } from "@/components/ui/Button";
 import { mobileNavSections, primaryNav } from "@/content/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { useLocale } from "@/components/providers/LocaleProvider";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const { locale, setLocale } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -21,7 +23,7 @@ export function Navbar() {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>("Solutions");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -43,14 +45,14 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled || openMega
-            ? "border-b border-[var(--border)] bg-[rgba(5,8,22,0.82)] backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent",
+            ? "border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] shadow-[0_1px_0_rgba(15,23,42,0.04)] backdrop-blur-xl"
+            : "border-b border-transparent bg-[color-mix(in_srgb,var(--bg)_55%,transparent)] backdrop-blur-md",
         )}
       >
         <div className="container flex h-[var(--header-h)] items-center justify-between gap-4">
-          <Logo className="[&_span]:text-white" />
+          <Logo />
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
             {primaryNav.map((item) => {
               const active =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -65,33 +67,32 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "inline-flex h-11 items-center gap-1 px-3 text-[13px] font-semibold tracking-[0.02em] text-white/70 transition hover:text-white",
-                      (active || open) && "text-white",
+                      "inline-flex h-11 items-center gap-1 rounded-lg px-3 text-[0.9rem] font-semibold tracking-[-0.01em] transition",
+                      active || open
+                        ? "bg-[var(--brand-soft)] text-[var(--brand)]"
+                        : "text-[var(--text-muted)] hover:bg-[var(--bg-muted)] hover:text-[var(--heading)]",
                     )}
                     onFocus={() => setOpenMega(item.children ? item.label : null)}
                   >
                     {item.label}
                     {item.children ? <ChevronDown className="size-3.5 opacity-70" /> : null}
                   </Link>
-                  {active || open ? (
-                    <span className="absolute inset-x-3 -bottom-px h-px bg-[var(--brand)] shadow-[0_0_12px_var(--brand-glow)]" />
-                  ) : null}
 
                   {item.children && open ? (
-                    <div className="absolute left-1/2 top-full z-40 w-[min(92vw,720px)] -translate-x-1/2 pt-4">
-                      <div className="border border-[var(--border)] bg-[rgba(8,13,36,0.96)] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+                    <div className="absolute left-1/2 top-full z-40 w-[min(92vw,720px)] -translate-x-1/2 pt-3">
+                      <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow)]">
                         <div className="mb-4 flex items-end justify-between gap-4">
                           <div>
-                            <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+                            <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
                               {item.label}
                             </p>
-                            <p className="mt-1 text-sm text-[var(--muted)]">
+                            <p className="mt-1 text-sm text-[var(--text-muted)]">
                               Explore Syntrax capabilities in this area.
                             </p>
                           </div>
                           <Link
                             href={item.href}
-                            className="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-[var(--brand)]"
+                            className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--heading)] hover:text-[var(--brand)]"
                           >
                             View all <ArrowUpRight className="size-3.5" />
                           </Link>
@@ -101,13 +102,15 @@ export function Navbar() {
                             <Link
                               key={child.href + child.label}
                               href={child.href}
-                              className="group border border-transparent px-4 py-4 transition hover:border-[var(--border)] hover:bg-[rgba(10,0,244,0.12)]"
+                              className="group rounded-xl border border-transparent px-4 py-4 transition hover:border-[var(--border)] hover:bg-[var(--brand-soft)]"
                             >
                               <div className="flex items-start justify-between gap-3">
                                 <div>
-                                  <div className="font-semibold text-white">{child.label}</div>
+                                  <div className="font-semibold text-[var(--heading)]">
+                                    {child.label}
+                                  </div>
                                   {child.description ? (
-                                    <p className="mt-1 text-sm text-[var(--muted)]">
+                                    <p className="mt-1 text-sm text-[var(--text-muted)]">
                                       {child.description}
                                     </p>
                                   ) : null}
@@ -125,10 +128,10 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             <button
               type="button"
-              className="inline-flex size-10 items-center justify-center text-white/70 hover:text-white"
+              className="inline-flex size-10 items-center justify-center rounded-lg text-[var(--text-muted)] transition hover:bg-[var(--bg-muted)] hover:text-[var(--heading)]"
               aria-label="Open search"
               onClick={() => setSearchOpen(true)}
             >
@@ -136,20 +139,28 @@ export function Navbar() {
             </button>
             <button
               type="button"
-              className="inline-flex size-10 items-center justify-center text-white/70 hover:text-white"
+              onClick={() => setLocale(locale === "en" ? "sw" : "en")}
+              className="hidden h-10 items-center rounded-lg px-2.5 text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)] transition hover:bg-[var(--bg-muted)] hover:text-[var(--heading)] sm:inline-flex"
+              aria-label="Toggle language"
+            >
+              {locale}
+            </button>
+            <button
+              type="button"
+              className="inline-flex size-10 items-center justify-center rounded-lg text-[var(--text-muted)] transition hover:bg-[var(--bg-muted)] hover:text-[var(--heading)]"
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               onClick={toggleTheme}
             >
               {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </button>
-            <div className="hidden lg:block">
+            <div className="ml-1 hidden lg:block">
               <Button href="/contact" size="sm" arrow>
-                Talk to an Expert
+                Talk to us
               </Button>
             </div>
             <button
               type="button"
-              className="inline-flex size-10 items-center justify-center text-white xl:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-lg text-[var(--heading)] transition hover:bg-[var(--bg-muted)] xl:hidden"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((value) => !value)}
@@ -162,18 +173,18 @@ export function Navbar() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[var(--deep)] transition xl:hidden",
-          mobileOpen ? "visible opacity-100" : "invisible opacity-0",
+          "fixed inset-0 z-40 bg-[var(--bg)] transition xl:hidden",
+          mobileOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none",
         )}
       >
         <div className="flex h-full flex-col overflow-auto px-5 pb-10 pt-28">
           <div className="mb-6 flex items-center justify-between">
-            <p className="text-xs font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
               Menu
             </p>
             <button
               type="button"
-              className="text-sm text-white/70"
+              className="text-sm font-medium text-[var(--text-muted)]"
               onClick={() => setSearchOpen(true)}
             >
               Search
@@ -183,10 +194,13 @@ export function Navbar() {
             {mobileNavSections.map((section) => {
               const open = openMobileSection === section.label;
               return (
-                <div key={section.label} className="border border-[var(--border)]">
+                <div
+                  key={section.label}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)]"
+                >
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between px-4 py-4 text-left font-semibold text-white"
+                    className="flex w-full items-center justify-between px-4 py-4 text-left font-semibold text-[var(--heading)]"
                     aria-expanded={open}
                     onClick={() => setOpenMobileSection(open ? null : section.label)}
                   >
@@ -199,7 +213,7 @@ export function Navbar() {
                         <Link
                           key={item.href + item.label}
                           href={item.href}
-                          className="block px-3 py-2.5 text-[var(--muted)] hover:text-[var(--brand)]"
+                          className="block rounded-lg px-3 py-2.5 text-[var(--text-muted)] hover:bg-[var(--brand-soft)] hover:text-[var(--brand)]"
                         >
                           {item.label}
                         </Link>
@@ -212,7 +226,7 @@ export function Navbar() {
           </div>
           <div className="mt-auto pt-8">
             <Button href="/contact" className="w-full" arrow>
-              Talk to an Expert
+              Talk to us
             </Button>
           </div>
         </div>

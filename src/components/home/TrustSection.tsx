@@ -15,7 +15,7 @@ const sections = [
 
 export function TrustSection() {
   return (
-    <section className="section bg-[var(--deep-2)]">
+    <section className="section bg-[var(--bg-muted)]">
       <div className="container grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-end">
         <Reveal>
           <div className="eyebrow">Trust Center</div>
@@ -37,7 +37,7 @@ export function TrustSection() {
             {sections.map((item) => (
               <li
                 key={item}
-                className="border border-[var(--border)] bg-[var(--deep)] px-4 py-5 text-sm font-semibold tracking-[0.02em]"
+                className="rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-5 text-sm font-semibold tracking-[0.02em] shadow-[var(--shadow-sm)]"
               >
                 {item}
               </li>

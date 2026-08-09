@@ -32,13 +32,13 @@ export function ProductsSection() {
                     <ArrowRight className="size-4 transition group-hover:translate-x-1" />
                   </Link>
                 </div>
-                <div className="relative min-h-56 overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-6 md:min-h-72 md:p-8">
-                  <div className="absolute inset-0 tech-grid opacity-30" aria-hidden />
+                <div className="relative min-h-56 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-[var(--shadow-sm)] md:min-h-72 md:p-8">
+                  <div className="absolute inset-0 tech-grid opacity-40" aria-hidden />
                   <div
                     className="absolute inset-0"
                     style={{
                       background:
-                        "radial-gradient(360px 180px at 80% 20%, rgba(10,0,244,0.28), transparent 70%)",
+                        "radial-gradient(360px 180px at 80% 20%, rgba(10,0,244,0.12), transparent 70%)",
                     }}
                     aria-hidden
                   />
@@ -53,7 +53,7 @@ export function ProductsSection() {
                       {product.capabilities.slice(0, 4).map((capability) => (
                         <li
                           key={capability}
-                          className="border border-[var(--border)] bg-[rgba(5,8,22,0.35)] px-3 py-3 text-sm"
+                          className="rounded-xl border border-[var(--border)] bg-[var(--bg-muted)] px-3 py-3 text-sm"
                         >
                           {capability}
                         </li>

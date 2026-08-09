@@ -62,14 +62,14 @@ export function HeroArchitecture() {
   return (
     <div
       ref={ref}
-      className="relative aspect-[4/5] w-full overflow-hidden border border-[var(--border)] bg-[rgba(8,13,36,0.65)] sm:aspect-[5/4] lg:aspect-square"
+      className="relative aspect-[4/5] h-full min-h-[420px] w-full overflow-hidden bg-[linear-gradient(180deg,#fbfcff_0%,#eef2ff_100%)] sm:aspect-[5/4] lg:aspect-auto"
     >
-      <div className="absolute inset-0 tech-grid opacity-40" aria-hidden />
+      <div className="absolute inset-0 tech-grid opacity-50" aria-hidden />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(420px 280px at 50% 20%, rgba(10,0,244,0.28), transparent 65%)",
+            "radial-gradient(420px 280px at 50% 20%, rgba(10,0,244,0.14), transparent 65%)",
         }}
         aria-hidden
       />
@@ -107,13 +107,13 @@ export function HeroArchitecture() {
               cx={node.x}
               cy={node.y}
               r={node.id === "syntrax" ? 2.2 : 1.35}
-              fill={node.id === "syntrax" ? "#0A00F4" : "#0C122B"}
+              fill={node.id === "syntrax" ? "#0A00F4" : "#ffffff"}
               stroke="#0A00F4"
               strokeWidth="0.35"
               style={{
                 filter:
                   node.id === "syntrax"
-                    ? "drop-shadow(0 0 6px rgba(10,0,244,0.8))"
+                    ? "drop-shadow(0 0 8px rgba(10,0,244,0.45))"
                     : undefined,
               }}
             />
@@ -121,9 +121,9 @@ export function HeroArchitecture() {
               x={node.x}
               y={node.y + (node.id === "syntrax" ? -4.2 : -2.8)}
               textAnchor="middle"
-              fill="rgba(245,247,255,0.9)"
+              fill="#0A0F1C"
               fontSize="2.2"
-              fontFamily="Manrope, sans-serif"
+              fontFamily="Space Grotesk, sans-serif"
               fontWeight="600"
               letterSpacing="0.08em"
             >

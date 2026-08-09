@@ -21,7 +21,7 @@ const frames = [
 
 export function CaseStudiesSection() {
   return (
-    <section className="section bg-[var(--deep-2)]">
+    <section className="section bg-[var(--bg-muted)]">
       <div className="container">
         <Reveal>
           <div className="eyebrow">Case studies</div>
@@ -33,7 +33,7 @@ export function CaseStudiesSection() {
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
           {frames.map((item, index) => (
             <Reveal key={item.industry} delay={index * 60}>
-              <article className="flex h-full flex-col border border-dashed border-[var(--border-strong)] p-6 md:p-8">
+              <article className="flex h-full flex-col rounded-2xl border border-dashed border-[var(--border-strong)] bg-[var(--bg-elevated)] p-6 md:p-8">
                 <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--brand)] uppercase">
                   {item.industry}
                 </p>

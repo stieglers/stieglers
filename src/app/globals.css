@@ -2,67 +2,81 @@
 
 :root {
   --brand: #0a00f4;
-  --brand-hover: #180dff;
-  --brand-glow: rgba(10, 0, 244, 0.35);
-  --deep: #050816;
-  --deep-2: #080d24;
-  --surface: #0c122b;
-  --surface-2: #101735;
-  --white: #ffffff;
-  --soft: #f5f7ff;
-  --muted: #a7b0c8;
-  --ink: #111827;
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --brand-hover: #0800c9;
+  --brand-deep: #0600a8;
+  --brand-soft: rgba(10, 0, 244, 0.08);
+  --brand-glow: rgba(10, 0, 244, 0.18);
 
-  /* Compatibility aliases used across older page components */
+  --bg: #f7f8fc;
+  --bg-muted: #eef1fb;
+  --bg-elevated: #ffffff;
+  --bg-dark: #0a0f1c;
+  --bg-dark-2: #111827;
+
+  --text: #1a2236;
+  --text-muted: #5c667a;
+  --heading: #0a0f1c;
+  --white: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+
+  --accent: var(--brand);
+  --accent-soft: var(--brand-soft);
+  --ring: rgba(10, 0, 244, 0.35);
+  --success: #059669;
+  --danger: #dc2626;
+
   --blue: var(--brand);
   --blue-hover: var(--brand-hover);
-  --blue-light: #5a52ff;
-  --cyan: #6d8cff;
-  --navy: var(--deep);
-  --navy-2: var(--deep-2);
+  --navy: var(--bg-dark);
+  --navy-2: var(--bg-dark-2);
   --royal: var(--brand);
-  --royal-2: var(--brand-hover);
-  --slate: var(--muted);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  --shadow-sm: 0 12px 30px rgba(0, 0, 0, 0.22);
+  --slate: var(--text-muted);
+  --muted: var(--text-muted);
+  --deep: var(--bg-dark);
+  --deep-2: var(--bg-muted);
+  --surface: var(--bg-elevated);
+  --surface-2: var(--bg-muted);
+  --soft: var(--bg-muted);
+  --ink: var(--heading);
+  --line: var(--border);
+  --line-strong: var(--border-strong);
+  --cyan: #4f6dff;
 
-  --bg: var(--deep);
-  --bg-elevated: var(--surface);
-  --bg-muted: var(--deep-2);
-  --text: #e8ecf8;
-  --text-muted: var(--muted);
-  --heading: var(--white);
-  --accent: var(--brand);
-  --accent-soft: rgba(10, 0, 244, 0.18);
-  --ring: rgba(10, 0, 244, 0.55);
-  --success: #22c55e;
-  --danger: #ef4444;
+  --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 12px 32px rgba(15, 23, 42, 0.06);
 
-  --radius-sm: 2px;
-  --radius: 4px;
-  --container: 1440px;
-  --header-h: 78px;
-  --grid-gutter: 1.5rem;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --container: 1180px;
+  --header-h: 72px;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-html:not(.dark) {
-  --bg: var(--white);
-  --bg-elevated: #ffffff;
-  --bg-muted: #f7f8fc;
-  --text: #111827;
-  --text-muted: #5b6478;
-  --heading: #111827;
-  --border: rgba(17, 24, 39, 0.1);
-  --border-strong: rgba(17, 24, 39, 0.18);
-  --accent-soft: rgba(10, 0, 244, 0.08);
-  --ring: rgba(10, 0, 244, 0.4);
-  --surface: #ffffff;
-  --deep-2: #f7f8fc;
-  color-scheme: light;
+html.dark {
+  --bg: #070b16;
+  --bg-muted: #0d1324;
+  --bg-elevated: #11182b;
+  --text: #e8ecf8;
+  --text-muted: #9aa3b8;
+  --heading: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent-soft: rgba(10, 0, 244, 0.18);
+  --brand-soft: rgba(10, 0, 244, 0.18);
+  --deep: #050814;
+  --deep-2: #0d1324;
+  --surface: var(--bg-elevated);
+  --surface-2: #151d33;
+  --soft: #151d33;
+  --ink: var(--heading);
+  --line: var(--border);
+  --line-strong: var(--border-strong);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 10px 28px rgba(0, 0, 0, 0.25);
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -84,14 +98,13 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(900px 420px at 80% -10%, rgba(10, 0, 244, 0.18), transparent 55%),
-    radial-gradient(700px 360px at 0% 20%, rgba(10, 0, 244, 0.08), transparent 50%),
-    var(--bg);
+    radial-gradient(980px 420px at 88% -8%, rgba(10, 0, 244, 0.07), transparent 55%),
+    radial-gradient(720px 340px at -8% 0%, rgba(10, 0, 244, 0.045), transparent 52%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 42%, var(--bg) 100%);
   color: var(--text);
   font-family: var(--font-body), "Segoe UI", sans-serif;
-  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  font-size: clamp(1rem, 1.02vw, 1.0625rem);
   line-height: 1.65;
-  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 
@@ -103,8 +116,8 @@ h5,
 h6 {
   font-family: var(--font-heading), "Segoe UI", sans-serif;
   color: var(--heading);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
   font-weight: 700;
   margin: 0;
 }
@@ -133,8 +146,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(10, 0, 244, 0.35);
-  color: white;
+  background: rgba(10, 0, 244, 0.16);
 }
 
 :focus-visible {
@@ -148,65 +160,77 @@ textarea {
 }
 
 .section {
-  padding: clamp(4rem, 8vw, 8rem) 0;
-  position: relative;
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brand);
 }
 
 .eyebrow::before {
   content: "";
-  width: 1.5rem;
-  height: 1px;
+  width: 1.1rem;
+  height: 2px;
+  border-radius: 999px;
   background: var(--brand);
-  box-shadow: 0 0 12px var(--brand-glow);
 }
 
 .display {
-  font-size: clamp(2.6rem, 6.5vw, 7rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+  letter-spacing: -0.055em;
   line-height: 0.98;
 }
 
 .section-title {
-  font-size: clamp(2.4rem, 5vw, 4.75rem);
-  max-width: 14ch;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  max-width: 18ch;
 }
 
-.lead {
-  margin-top: 1.25rem;
-  max-width: 42rem;
+.lead,
+.section-lead {
+  margin-top: 1.15rem;
+  max-width: 38rem;
   color: var(--text-muted);
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  font-weight: 450;
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
   line-height: 1.7;
+}
+
+.soft-panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .tech-grid {
   background-image:
-    linear-gradient(to right, rgba(167, 176, 200, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 176, 200, 0.06) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(to right, rgba(10, 0, 244, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 0, 244, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-.hairline {
-  border: 1px solid var(--border);
+html.dark .tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 .glow-line {
-  background: linear-gradient(90deg, transparent, var(--brand), transparent);
   height: 1px;
-  box-shadow: 0 0 18px var(--brand-glow);
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(10, 0, 244, 0.45),
+    transparent
+  );
 }
 
 .skip-link {
@@ -217,6 +241,7 @@ textarea {
   background: var(--brand);
   color: white;
   padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
 }
 
 .skip-link:focus {
@@ -225,15 +250,62 @@ textarea {
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(18px);
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -2.4;
+  }
+}
+
+.motion-rise {
+  animation: fade-rise 0.9s ease both;
+}
+
+.motion-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.motion-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.motion-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.brand-pulse {
+  animation: soft-pulse 4.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -242,15 +314,16 @@ textarea {
   }
 
   .reveal,
-  .reveal.is-visible {
+  .reveal.is-visible,
+  .motion-rise,
+  .brand-pulse {
     opacity: 1;
     transform: none;
+    animation: none;
     transition: none;
   }
 
-  *,
-  *::before,
-  *::after {
+  * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -288,23 +361,4 @@ body.menu-open {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@keyframes pulse-line {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes flow {
-  from {
-    stroke-dashoffset: 24;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
 }
