@@ -34,7 +34,7 @@ export function NewsletterForm() {
           email,
           categories: selected,
           consent,
-          website: "", // honeypot
+          website: "",
         }),
       });
       if (!response.ok) throw new Error("Request failed");
@@ -50,11 +50,7 @@ export function NewsletterForm() {
 
   return (
     <div>
-      <h3 className="text-lg font-semibold text-[var(--heading)]">Stay ahead of technology.</h3>
-      <p className="mt-2 max-w-md text-sm text-[var(--text-muted)]">
-        Practical updates on cybersecurity, infrastructure and digital operations.
-      </p>
-      <form className="mt-5 space-y-4" onSubmit={onSubmit} noValidate>
+      <form className="space-y-4" onSubmit={onSubmit} noValidate>
         <input
           type="text"
           name="website"
@@ -64,14 +60,19 @@ export function NewsletterForm() {
           aria-hidden
           onChange={() => undefined}
         />
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="Work email"
-          className="h-12 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg)] px-3 text-[var(--heading)] outline-none placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]"
-        />
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Work email"
+            className="h-12 w-full rounded-xl border border-[var(--border-strong)] bg-[rgba(255,255,255,0.04)] px-4 text-[var(--heading)] outline-none placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]"
+          />
+          <Button type="submit" disabled={status === "loading"} className="sm:min-w-36">
+            {status === "loading" ? "Subscribing..." : "Subscribe"}
+          </Button>
+        </div>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => {
             const active = selected.includes(category);
@@ -81,7 +82,7 @@ export function NewsletterForm() {
                 type="button"
                 className={`rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
                   active
-                    ? "border-[var(--brand)] bg-[var(--brand-soft)] text-[var(--brand)]"
+                    ? "border-[var(--brand)] bg-[var(--brand-soft)] text-[var(--brand-hover)]"
                     : "border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--brand)]/40"
                 }`}
                 onClick={() =>
@@ -107,18 +108,15 @@ export function NewsletterForm() {
           <span>
             I agree to receive Syntrax updates and understand I can unsubscribe at any time. See
             our{" "}
-            <a href="/privacy" className="underline">
+            <a href="/privacy" className="underline hover:text-white">
               Privacy Policy
             </a>
             .
           </span>
         </label>
-        <Button type="submit" disabled={status === "loading"}>
-          {status === "loading" ? "Subscribing..." : "Subscribe"}
-        </Button>
         {message ? (
           <p
-            className={`text-sm ${status === "error" ? "text-[var(--danger)]" : "text-[var(--success)]"}`}
+            className={`text-sm ${status === "error" ? "text-red-300" : "text-emerald-300"}`}
             role="status"
           >
             {message}

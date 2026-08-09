@@ -28,11 +28,11 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("syntrax-theme") as Theme | null;
-    const next = stored === "dark" || stored === "light" ? stored : "light";
+    const next = stored === "dark" || stored === "light" ? stored : "dark";
     setThemeState(next);
     applyTheme(next);
   }, []);

@@ -15,12 +15,13 @@ export default function ContactPage() {
   return (
     <section className="pt-[var(--header-h)]">
       <div className="grid min-h-[calc(100svh-var(--header-h))] lg:grid-cols-2">
-        <div className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--bg-elevated)] px-6 py-16 md:px-12 lg:border-r lg:border-b-0 lg:py-24">
+        <div className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--bg-dark)] px-6 py-16 md:px-12 lg:border-r lg:border-b-0 lg:py-24">
+          <div className="absolute inset-0 tech-grid opacity-30" aria-hidden />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(600px 320px at 20% 20%, rgba(10,0,244,0.10), transparent 65%)",
+                "radial-gradient(600px 320px at 20% 20%, rgba(10,0,244,0.35), transparent 65%)",
             }}
             aria-hidden
           />
@@ -37,7 +38,7 @@ export default function ContactPage() {
               {departments.map((item) => (
                 <li
                   key={item}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--brand-soft)] px-4 py-3 text-sm font-semibold tracking-[0.04em]"
+                  className="rounded-xl border border-[var(--border)] bg-[rgba(12,18,43,0.7)] px-4 py-3 text-sm font-semibold tracking-[0.04em]"
                 >
                   {item}
                 </li>
@@ -48,13 +49,13 @@ export default function ContactPage() {
               <p>
                 <a
                   href={`mailto:${siteConfig.email.general}`}
-                  className="hover:text-[var(--brand)]"
+                  className="hover:text-[var(--brand-hover)]"
                 >
                   {siteConfig.email.general}
                 </a>
               </p>
               <p>
-                <a href={`tel:${siteConfig.phone.e164}`} className="hover:text-[var(--brand)]">
+                <a href={`tel:${siteConfig.phone.e164}`} className="hover:text-[var(--brand-hover)]">
                   {siteConfig.phone.display}
                 </a>
               </p>

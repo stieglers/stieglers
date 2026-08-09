@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 export function CtaBand({
   title = "Have a complex technology problem?",
   text = "Let's solve it — with clear architecture, security discipline and accountable delivery.",
-  primary = { label: "Start a conversation", href: "/contact" },
+  primary = { label: "Talk to our team", href: "/contact" },
   secondary = { label: "Explore services", href: "/services" },
 }: {
   title?: string;
@@ -12,14 +12,14 @@ export function CtaBand({
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section className="section relative overflow-hidden">
-      <div className="container relative">
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)] px-8 py-12 shadow-[var(--shadow-sm)] md:px-14 md:py-16">
+    <section className="section">
+      <div className="container">
+        <div className="glass relative overflow-hidden rounded-[1.75rem] px-8 py-12 md:px-14 md:py-16">
           <div
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(700px 280px at 12% 20%, rgba(10,0,244,0.10), transparent 60%), radial-gradient(520px 240px at 90% 80%, rgba(10,0,244,0.06), transparent 55%)",
+                "radial-gradient(700px 280px at 12% 20%, rgba(10,0,244,0.32), transparent 60%)",
             }}
             aria-hidden
           />

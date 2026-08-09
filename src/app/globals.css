@@ -2,81 +2,85 @@
 
 :root {
   --brand: #0a00f4;
-  --brand-hover: #0800c9;
-  --brand-deep: #0600a8;
-  --brand-soft: rgba(10, 0, 244, 0.08);
-  --brand-glow: rgba(10, 0, 244, 0.18);
+  --brand-hover: #3d35ff;
+  --brand-deep: #0700c4;
+  --brand-soft: rgba(10, 0, 244, 0.16);
+  --brand-glow: rgba(10, 0, 244, 0.45);
 
-  --bg: #f7f8fc;
-  --bg-muted: #eef1fb;
-  --bg-elevated: #ffffff;
-  --bg-dark: #0a0f1c;
-  --bg-dark-2: #111827;
+  --bg: #050816;
+  --bg-muted: #0a1020;
+  --bg-elevated: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.72);
+  --bg-dark: #03050d;
+  --bg-dark-2: #0a1020;
 
-  --text: #1a2236;
-  --text-muted: #5c667a;
-  --heading: #0a0f1c;
+  --text: #e8ecf8;
+  --text-muted: #9aa6bf;
+  --heading: #f5f7ff;
   --white: #ffffff;
-  --border: rgba(15, 23, 42, 0.08);
-  --border-strong: rgba(15, 23, 42, 0.14);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
 
   --accent: var(--brand);
   --accent-soft: var(--brand-soft);
-  --ring: rgba(10, 0, 244, 0.35);
-  --success: #059669;
-  --danger: #dc2626;
+  --ring: rgba(10, 0, 244, 0.45);
+  --success: #22c55e;
+  --danger: #ef4444;
 
   --blue: var(--brand);
   --blue-hover: var(--brand-hover);
-  --navy: var(--bg-dark);
-  --navy-2: var(--bg-dark-2);
+  --navy: var(--bg);
+  --navy-2: var(--bg-muted);
   --royal: var(--brand);
   --slate: var(--text-muted);
   --muted: var(--text-muted);
   --deep: var(--bg-dark);
   --deep-2: var(--bg-muted);
   --surface: var(--bg-elevated);
-  --surface-2: var(--bg-muted);
-  --soft: var(--bg-muted);
-  --ink: var(--heading);
-  --line: var(--border);
-  --line-strong: var(--border-strong);
-  --cyan: #4f6dff;
-
-  --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
-  --shadow-sm: 0 12px 32px rgba(15, 23, 42, 0.06);
-
-  --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --container: 1180px;
-  --header-h: 72px;
-
-  color-scheme: light;
-}
-
-html.dark {
-  --bg: #070b16;
-  --bg-muted: #0d1324;
-  --bg-elevated: #11182b;
-  --text: #e8ecf8;
-  --text-muted: #9aa3b8;
-  --heading: #ffffff;
-  --border: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --accent-soft: rgba(10, 0, 244, 0.18);
-  --brand-soft: rgba(10, 0, 244, 0.18);
-  --deep: #050814;
-  --deep-2: #0d1324;
-  --surface: var(--bg-elevated);
   --surface-2: #151d33;
   --soft: #151d33;
   --ink: var(--heading);
   --line: var(--border);
   --line-strong: var(--border-strong);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  --shadow-sm: 0 10px 28px rgba(0, 0, 0, 0.25);
+  --cyan: #4f6dff;
+
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 12px 36px rgba(0, 0, 0, 0.28);
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --container: 1180px;
+  --header-h: 72px;
+
   color-scheme: dark;
+}
+
+html.light {
+  --bg: #f5f7fc;
+  --bg-muted: #e9eefb;
+  --bg-elevated: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-dark: #070b16;
+  --bg-dark-2: #0d1324;
+  --text: #1a2236;
+  --text-muted: #5c667a;
+  --heading: #0a0f1c;
+  --border: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --brand-soft: rgba(10, 0, 244, 0.08);
+  --brand-glow: rgba(10, 0, 244, 0.22);
+  --deep: #070b16;
+  --deep-2: #e9eefb;
+  --surface: #ffffff;
+  --surface-2: #eef1fb;
+  --soft: #eef1fb;
+  --ink: var(--heading);
+  --line: var(--border);
+  --line-strong: var(--border-strong);
+  --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 12px 32px rgba(15, 23, 42, 0.06);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -98,11 +102,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(980px 420px at 88% -8%, rgba(10, 0, 244, 0.07), transparent 55%),
-    radial-gradient(720px 340px at -8% 0%, rgba(10, 0, 244, 0.045), transparent 52%),
-    linear-gradient(180deg, #ffffff 0%, var(--bg) 42%, var(--bg) 100%);
+    radial-gradient(900px 480px at 85% -10%, rgba(10, 0, 244, 0.22), transparent 55%),
+    radial-gradient(700px 380px at -10% 20%, rgba(10, 0, 244, 0.12), transparent 50%),
+    var(--bg);
   color: var(--text);
-  font-family: var(--font-body), "Segoe UI", sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1rem, 1.02vw, 1.0625rem);
   line-height: 1.65;
   text-rendering: optimizeLegibility;
@@ -114,7 +118,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading), "Segoe UI", sans-serif;
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
   color: var(--heading);
   letter-spacing: -0.04em;
   line-height: 1.08;
@@ -146,7 +150,8 @@ textarea {
 }
 
 ::selection {
-  background: rgba(10, 0, 244, 0.16);
+  background: rgba(10, 0, 244, 0.35);
+  color: white;
 }
 
 :focus-visible {
@@ -169,9 +174,9 @@ textarea {
   gap: 0.65rem;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--brand-hover);
 }
 
 .eyebrow::before {
@@ -183,54 +188,56 @@ textarea {
 }
 
 .display {
-  font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+  font-size: clamp(2.8rem, 7vw, 5.75rem);
   letter-spacing: -0.055em;
   line-height: 0.98;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
   max-width: 18ch;
 }
 
 .lead,
 .section-lead {
   margin-top: 1.15rem;
-  max-width: 38rem;
+  max-width: 40rem;
   color: var(--text-muted);
-  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
   line-height: 1.7;
 }
 
-.soft-panel {
-  background: var(--bg-elevated);
+.text-gradient {
+  background: linear-gradient(120deg, #ffffff 10%, #9db0ff 45%, #0a00f4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  backdrop-filter: blur(18px);
   box-shadow: var(--shadow-sm);
 }
 
 .tech-grid {
   background-image:
-    linear-gradient(to right, rgba(10, 0, 244, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 0, 244, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-html.dark .tech-grid {
+html.light .tech-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(10, 0, 244, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 0, 244, 0.05) 1px, transparent 1px);
 }
 
 .glow-line {
   height: 1px;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(10, 0, 244, 0.45),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(10, 0, 244, 0.7), transparent);
 }
 
 .skip-link {
@@ -248,27 +255,24 @@ html.dark .tech-grid {
   top: 1rem;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee 36s linear infinite;
 }
 
-@keyframes fade-rise {
+@keyframes marquee {
   from {
-    opacity: 0;
-    transform: translateY(16px);
+    transform: translateX(0);
   }
   to {
-    opacity: 1;
-    transform: none;
+    transform: translateX(-50%);
   }
 }
 
@@ -278,34 +282,12 @@ html.dark .tech-grid {
     opacity: 0.45;
   }
   50% {
-    opacity: 0.9;
+    opacity: 0.95;
   }
-}
-
-@keyframes flow {
-  to {
-    stroke-dashoffset: -2.4;
-  }
-}
-
-.motion-rise {
-  animation: fade-rise 0.9s ease both;
-}
-
-.motion-delay-1 {
-  animation-delay: 0.12s;
-}
-
-.motion-delay-2 {
-  animation-delay: 0.24s;
-}
-
-.motion-delay-3 {
-  animation-delay: 0.36s;
 }
 
 .brand-pulse {
-  animation: soft-pulse 4.5s ease-in-out infinite;
+  animation: soft-pulse 4.8s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -313,14 +295,9 @@ html.dark .tech-grid {
     scroll-behavior: auto;
   }
 
-  .reveal,
-  .reveal.is-visible,
-  .motion-rise,
+  .marquee-track,
   .brand-pulse {
-    opacity: 1;
-    transform: none;
-    animation: none;
-    transition: none;
+    animation: none !important;
   }
 
   * {

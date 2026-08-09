@@ -24,11 +24,12 @@ export function PageHero({
         className,
       )}
     >
+      <div className="absolute inset-0 tech-grid opacity-30" aria-hidden />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(720px 280px at 8% 0%, rgba(10,0,244,0.08), transparent 60%)",
+            "radial-gradient(720px 280px at 8% 0%, rgba(10,0,244,0.28), transparent 60%)",
         }}
         aria-hidden
       />

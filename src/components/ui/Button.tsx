@@ -18,20 +18,20 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-[var(--brand)] text-white shadow-[0_10px_28px_rgba(10,0,244,0.22)] hover:bg-[var(--brand-hover)] hover:shadow-[0_14px_32px_rgba(10,0,244,0.28)]",
+    "bg-[var(--brand)] text-white shadow-[0_0_0_1px_rgba(10,0,244,0.5),0_12px_40px_rgba(10,0,244,0.35)] hover:bg-[var(--brand-hover)] hover:shadow-[0_0_0_1px_rgba(61,53,255,0.55),0_16px_44px_rgba(10,0,244,0.45)]",
   secondary:
-    "border border-[var(--border-strong)] bg-[var(--bg-elevated)] text-[var(--heading)] hover:border-[var(--brand)]/35 hover:bg-[var(--bg-muted)]",
-  ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--brand-soft)]",
+    "border border-[var(--border-strong)] bg-transparent text-[var(--heading)] hover:border-[var(--brand)] hover:bg-[var(--brand-soft)] hover:text-white",
   outline:
-    "border border-[var(--border-strong)] bg-transparent text-[var(--heading)] hover:border-[var(--brand)]/40 hover:text-[var(--brand)]",
+    "border border-white/25 bg-transparent text-white hover:border-[var(--brand)] hover:text-white",
+  ghost: "bg-transparent text-[var(--heading)] hover:bg-[var(--brand-soft)]",
   inverse:
-    "bg-white text-[var(--bg-dark)] shadow-[0_10px_28px_rgba(0,0,0,0.16)] hover:bg-[var(--bg-muted)]",
+    "bg-white text-[var(--bg-dark)] shadow-[0_10px_28px_rgba(0,0,0,0.2)] hover:bg-[#eef1ff]",
 };
 
 const sizes = {
-  sm: "h-9 px-3.5 text-sm",
-  md: "h-11 px-5 text-[0.95rem]",
-  lg: "h-12 px-6 text-base",
+  sm: "h-10 px-4 text-sm",
+  md: "h-12 px-5 text-[0.95rem]",
+  lg: "h-14 px-6 text-base",
 };
 
 export function Button({
