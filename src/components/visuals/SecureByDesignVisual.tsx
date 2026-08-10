@@ -136,10 +136,10 @@ export function SecureByDesignVisual() {
             className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-[rgba(10,0,244,0.3)] blur-3xl"
             aria-hidden
           />
-          <p className="text-[0.72rem] font-bold tracking-[0.22em] text-[#6B63FF] uppercase">
+          <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[#6B63FF] uppercase">
             SYNTRAX
           </p>
-          <p className="mt-2 font-[family-name:var(--font-heading)] text-[1.35rem] font-semibold tracking-[-0.03em] text-white md:text-[1.55rem]">
+          <p className="mt-1.5 font-[family-name:var(--font-heading)] text-[1.1rem] font-semibold tracking-[-0.03em] text-white md:text-[1.25rem]">
             Secure by design
           </p>
         </motion.div>

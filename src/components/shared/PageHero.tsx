@@ -36,7 +36,7 @@ export function PageHero({
       <div className="container relative">
         {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
         {eyebrow ? <div className="eyebrow mt-4">{eyebrow}</div> : null}
-        <h1 className="mt-4 max-w-4xl text-[clamp(2.3rem,5vw,4.25rem)] font-bold tracking-[-0.045em]">
+        <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,3.8vw,3rem)] font-bold tracking-[-0.04em]">
           {title}
         </h1>
         {lead ? <p className="lead">{lead}</p> : null}

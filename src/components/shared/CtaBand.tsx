@@ -25,7 +25,7 @@ export function CtaBand({
           />
           <div className="relative max-w-3xl">
             <div className="eyebrow">Think with us</div>
-            <h2 className="mt-4 max-w-[14ch] text-[clamp(2.2rem,4.5vw,3.75rem)] font-bold tracking-[-0.045em]">
+            <h2 className="mt-4 max-w-[16ch] text-[clamp(1.75rem,3.4vw,2.6rem)] font-bold tracking-[-0.04em]">
               {title}
             </h2>
             <p className="mt-5 max-w-2xl text-lg text-[var(--text-muted)]">{text}</p>

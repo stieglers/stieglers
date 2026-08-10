@@ -64,7 +64,7 @@ export function PracticeAreas() {
                   aria-hidden
                 />
                 <area.icon className="relative size-6 text-[var(--brand-hover)]" />
-                <h3 className="relative mt-5 text-2xl font-semibold tracking-[-0.03em]">
+                <h3 className="relative mt-5 text-xl font-semibold tracking-[-0.03em]">
                   {area.title}
                 </h3>
                 <p className="relative mt-3 flex-1 text-[var(--text-muted)]">{area.text}</p>

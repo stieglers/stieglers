@@ -15,7 +15,7 @@ export function WhySyntrax() {
       <div className="container">
         <Reveal>
           <div className="eyebrow">Why Syntrax</div>
-          <h2 className="mt-4 max-w-[16ch] text-[clamp(2.6rem,6vw,5.5rem)] font-semibold tracking-[-0.045em]">
+          <h2 className="mt-4 max-w-[18ch] text-[clamp(1.9rem,3.8vw,2.9rem)] font-semibold tracking-[-0.04em]">
             Built for organizations that cannot afford to get technology wrong.
           </h2>
         </Reveal>

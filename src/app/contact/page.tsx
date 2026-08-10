@@ -27,7 +27,7 @@ export default function ContactPage() {
           />
           <div className="relative max-w-xl">
             <div className="eyebrow">Contact</div>
-            <h1 className="mt-5 text-[clamp(2.6rem,5.5vw,4.75rem)] font-bold tracking-[-0.045em]">
+            <h1 className="mt-5 text-[clamp(2rem,4vw,3.15rem)] font-bold tracking-[-0.04em]">
               Let&apos;s build something secure.
             </h1>
             <p className="mt-6 text-lg text-[var(--text-muted)]">

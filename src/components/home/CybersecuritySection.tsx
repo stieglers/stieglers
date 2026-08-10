@@ -26,7 +26,7 @@ export function CybersecuritySection() {
       <div className="container relative grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
         <Reveal>
           <div className="eyebrow">SyntraxSec</div>
-          <h2 className="mt-4 text-[clamp(2.4rem,5vw,4.5rem)] font-bold tracking-[-0.045em]">
+          <h2 className="mt-4 text-[clamp(1.8rem,3.6vw,2.75rem)] font-bold tracking-[-0.04em]">
             Security is engineered.
             <br />
             Not added later.

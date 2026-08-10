@@ -18,7 +18,7 @@ export function NewsletterBand() {
             <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <div className="eyebrow">Newsletter</div>
-                <h2 className="mt-4 max-w-[14ch] text-[clamp(2.1rem,4.2vw,3.5rem)] font-bold tracking-[-0.045em]">
+                <h2 className="mt-4 max-w-[16ch] text-[clamp(1.7rem,3.2vw,2.45rem)] font-bold tracking-[-0.04em]">
                   Technology insights, delivered monthly
                 </h2>
                 <p className="mt-4 max-w-xl text-[var(--text-muted)]">
