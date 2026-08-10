@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import { Logo } from "@/components/layout/Logo";
 import { SearchDialog } from "@/components/layout/SearchDialog";
 import { Button } from "@/components/ui/Button";
 import { useTheme } from "@/components/providers/ThemeProvider";
@@ -52,13 +53,7 @@ export function Navbar() {
         )}
       >
         <div className="container flex h-[var(--header-h)] items-center justify-between gap-4">
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-[0.14em] text-[var(--heading)] transition hover:text-white"
-            aria-label="Syntrax Technologies home"
-          >
-            SYNTRAX<span className="text-[var(--brand)]">.</span>
-          </Link>
+          <Logo compact />
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
             {landingNav.map((item) => {

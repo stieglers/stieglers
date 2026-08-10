@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="Syntrax">
   <defs>
-    <linearGradient id="g" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5eb0f0"/>
-      <stop offset=".55" stop-color="#2d6fad"/>
-      <stop offset="1" stop-color="#163d66"/>
+    <linearGradient id="sx" x1="4" y1="2" x2="76" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A63FF"/>
+      <stop offset="0.4" stop-color="#0A00F4"/>
+      <stop offset="1" stop-color="#0500A0"/>
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="12" fill="url(#g)"/>
-  <path d="M24 9.5 35.5 14.2v11.1c0 7.4-5.8 13.2-11.5 15.2-5.7-2-11.5-7.8-11.5-15.2V14.2L24 9.5z" fill="rgba(255,255,255,.12)" stroke="#fff" stroke-width="1.75" stroke-linejoin="round"/>
-  <path d="M24 17v4.2M22.2 19.1h3.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-  <rect x="21.5" y="21.2" width="5" height="4.2" rx="1" fill="#fff"/>
-  <path d="M22.8 25.4h2.4v2.1c0 .9.7 1.6 1.6 1.6h0c.9 0 1.6-.7 1.6-1.6v-2.1" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
-  <circle cx="17.5" cy="30" r="2" fill="#7ee0c4"/>
-  <circle cx="24" cy="33.5" r="2" fill="#fff"/>
-  <circle cx="30.5" cy="30" r="2" fill="#7ee0c4"/>
-  <path d="M17.5 30 24 33.5 30.5 30M17.5 30 24 26.5M30.5 30 24 26.5" stroke="rgba(255,255,255,.55)" stroke-width="1.15" stroke-linecap="round"/>
-  <circle cx="24" cy="26.5" r="1.35" fill="#fff"/>
+  <!-- Three discrete shapes: two left inward diamonds + one right full diamond.
+       Gaps between them form the X negative space. -->
+  <g fill="url(#sx)">
+    <!-- Top-left inward diamond -->
+    <path d="M5 6h20l13 14-13 14H5l13-14L5 6z"/>
+    <!-- Bottom-left inward diamond -->
+    <path d="M5 46h20l13 14-13 14H5l13-14L5 46z"/>
+    <!-- Right full vertical diamond -->
+    <path d="M57 5 76 40 57 75 43 40Z"/>
+  </g>
 </svg>

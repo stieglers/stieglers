@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
+import { Logo } from "@/components/layout/Logo";
 import { WhatsAppIcon } from "@/components/layout/SocialIcons";
 import { siteConfig } from "@/content/site";
 
@@ -40,12 +41,7 @@ export function Footer() {
       <div className="container relative section !pb-10">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <Link
-              href="/"
-              className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-[0.14em] text-white"
-            >
-              SYNTRAX<span className="text-[var(--brand)]">.</span>
-            </Link>
+            <Logo compact />
             <p className="mt-5 max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
               Enterprise technology services for East Africa — cybersecurity, cloud, software
               engineering, and digital operations delivered with clarity and accountability.

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { SecureByDesignVisual } from "@/components/visuals/SecureByDesignVisual";
 
 export function Hero() {
   const reduced = useReducedMotion();
@@ -69,38 +70,8 @@ export function Hero() {
           initial={reduced ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          aria-hidden
         >
-          <div className="glass relative aspect-square overflow-hidden rounded-[1.75rem] p-8 md:p-10">
-            <div className="absolute inset-0 tech-grid opacity-50" />
-            <div className="relative grid h-full place-items-center">
-              <div className="absolute inset-[10%] rounded-full border border-[rgba(10,0,244,0.35)]" />
-              <div className="absolute inset-[24%] rounded-full border border-[rgba(10,0,244,0.22)]" />
-              <div className="absolute inset-[38%] rounded-full border border-[rgba(10,0,244,0.18)]" />
-              <div className="z-10 rounded-2xl border border-[var(--brand)]/50 bg-[rgba(10,0,244,0.18)] px-6 py-5 text-center shadow-[0_0_40px_rgba(10,0,244,0.35)]">
-                <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--brand-hover)] uppercase">
-                  Syntrax
-                </p>
-                <p className="mt-2 text-xl font-semibold tracking-[-0.03em] text-white">
-                  Secure by design
-                </p>
-              </div>
-              {[
-                { label: "Identity", top: "12%", left: "18%" },
-                { label: "Apps", top: "18%", left: "72%" },
-                { label: "Data", top: "68%", left: "16%" },
-                { label: "Cloud", top: "72%", left: "70%" },
-              ].map((node) => (
-                <span
-                  key={node.label}
-                  className="absolute rounded-full border border-[var(--border)] bg-[var(--bg-elevated)] px-3 py-1.5 text-xs font-semibold text-[var(--heading)]"
-                  style={{ top: node.top, left: node.left }}
-                >
-                  {node.label}
-                </span>
-              ))}
-            </div>
-          </div>
+          <SecureByDesignVisual />
         </motion.div>
       </div>
       <div className="glow-line" aria-hidden />
