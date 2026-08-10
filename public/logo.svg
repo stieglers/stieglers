@@ -1,19 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="Syntrax">
-  <defs>
-    <linearGradient id="sx" x1="4" y1="2" x2="76" y2="78" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6A63FF"/>
-      <stop offset="0.4" stop-color="#0A00F4"/>
-      <stop offset="1" stop-color="#0500A0"/>
-    </linearGradient>
-  </defs>
-  <!-- Three discrete shapes: two left inward diamonds + one right full diamond.
-       Gaps between them form the X negative space. -->
-  <g fill="url(#sx)">
-    <!-- Top-left inward diamond -->
-    <path d="M5 6h20l13 14-13 14H5l13-14L5 6z"/>
-    <!-- Bottom-left inward diamond -->
-    <path d="M5 46h20l13 14-13 14H5l13-14L5 46z"/>
-    <!-- Right full vertical diamond -->
-    <path d="M57 5 76 40 57 75 43 40Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Syntrax">
+  <g fill="#0A00F4" stroke="#0B0B0B" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M5 9 H33 L46 28 L33 47 H5 L21 28 Z"/>
+    <path d="M5 53 H33 L46 72 L33 91 H5 L21 72 Z"/>
+    <path d="M70 5 L95 50 L70 95 L48 50 Z"/>
   </g>
 </svg>
