@@ -1,0 +1,19 @@
+[Unit]
+Description=Syntrax Technologies Website (Next.js) — syntrax.co.tz
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/syntrax-web
+Environment=NODE_ENV=production
+Environment=PORT=3020
+Environment=HOSTNAME=127.0.0.1
+Environment=NEXT_PUBLIC_SITE_URL=https://syntrax.co.tz
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
