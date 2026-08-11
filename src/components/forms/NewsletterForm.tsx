@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { FormStatus } from "@/components/ui/FormStatus";
 import { trackEvent } from "@/lib/analytics";
 
 const categories = [
@@ -114,14 +115,7 @@ export function NewsletterForm() {
             .
           </span>
         </label>
-        {message ? (
-          <p
-            className={`text-sm ${status === "error" ? "text-red-300" : "text-emerald-300"}`}
-            role="status"
-          >
-            {message}
-          </p>
-        ) : null}
+        <FormStatus status={status} message={message} />
       </form>
     </div>
   );

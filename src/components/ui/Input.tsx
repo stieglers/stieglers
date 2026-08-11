@@ -18,19 +18,26 @@ export function Field({
       <span className="text-sm font-semibold text-[var(--heading)]">{label}</span>
       {children}
       {hint ? <span className="block text-xs text-[var(--text-muted)]">{hint}</span> : null}
-      {error ? <span className="block text-xs text-[var(--danger)]">{error}</span> : null}
+      {error ? (
+        <span className="field-error mt-1 block text-xs font-medium" role="alert">
+          {error}
+        </span>
+      ) : null}
     </label>
   );
 }
 
 export function Input({
   className,
+  invalid,
   ...props
-}: React.InputHTMLAttributes<HTMLInputElement>) {
+}: React.InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean }) {
   return (
     <input
+      aria-invalid={invalid || undefined}
       className={cn(
-        "h-12 w-full rounded-[var(--radius-sm)] border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-3 text-[var(--text)] outline-none transition focus:border-[var(--blue)]",
+        "h-12 w-full rounded-[var(--radius-sm)] border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-3 text-[var(--text)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--blue)]",
+        invalid && "input-invalid",
         className,
       )}
       {...props}

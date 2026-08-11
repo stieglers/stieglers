@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Field, Input, Select, TextArea } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { FormStatus } from "@/components/ui/FormStatus";
 import { services } from "@/content/services";
 import { products } from "@/content/products";
 import { trackEvent } from "@/lib/analytics";
@@ -89,14 +90,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       <Button type="submit" disabled={status === "loading"} arrow>
         {status === "loading" ? "Submitting..." : "Request a quote"}
       </Button>
-      {message ? (
-        <p
-          role="status"
-          className={status === "error" ? "text-sm text-[var(--danger)]" : "text-sm text-[var(--success)]"}
-        >
-          {message}
-        </p>
-      ) : null}
+      <FormStatus status={status} message={message} />
     </form>
   );
 }

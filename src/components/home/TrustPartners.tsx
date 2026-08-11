@@ -71,7 +71,7 @@ export function TrustPartners() {
                 </button>
               </div>
             </div>
-            <h3 className="mt-6 max-w-3xl text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+            <h3 className="mt-6 max-w-3xl text-xl font-semibold tracking-[-0.03em] md:text-2xl">
               {current.title}
             </h3>
             <p className="mt-4 max-w-3xl text-[var(--text-muted)]">{current.text}</p>

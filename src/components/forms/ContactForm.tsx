@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Field, Input, Select, TextArea } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { FormStatus } from "@/components/ui/FormStatus";
 import { trackEvent } from "@/lib/analytics";
 
 const departments = [
@@ -87,14 +88,7 @@ export function ContactForm() {
       <Button type="submit" disabled={status === "loading"} arrow>
         {status === "loading" ? "Sending..." : "Send message"}
       </Button>
-      {message ? (
-        <p
-          role="status"
-          className={status === "error" ? "text-sm text-[var(--danger)]" : "text-sm text-[var(--success)]"}
-        >
-          {message}
-        </p>
-      ) : null}
+      <FormStatus status={status} message={message} />
     </form>
   );
 }

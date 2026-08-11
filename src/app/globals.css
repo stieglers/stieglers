@@ -24,8 +24,16 @@
   --accent: var(--brand);
   --accent-soft: var(--brand-soft);
   --ring: rgba(10, 0, 244, 0.45);
-  --success: #22c55e;
-  --danger: #ef4444;
+  /* Dark-theme defaults: brighter status colors for contrast on navy */
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
+  --success-border: rgba(74, 222, 128, 0.45);
+  --danger: #fb7185;
+  --danger-soft: rgba(251, 113, 133, 0.14);
+  --danger-border: rgba(251, 113, 133, 0.45);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.14);
+  --warning-border: rgba(251, 191, 36, 0.45);
 
   --blue: var(--brand);
   --blue-hover: var(--brand-hover);
@@ -80,6 +88,16 @@ html.light {
   --line-strong: var(--border-strong);
   --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
   --shadow-sm: 0 12px 32px rgba(15, 23, 42, 0.06);
+  /* Light-theme: deeper status colors for contrast on white */
+  --success: #047857;
+  --success-soft: rgba(4, 120, 87, 0.1);
+  --success-border: rgba(4, 120, 87, 0.35);
+  --danger: #b91c1c;
+  --danger-soft: rgba(185, 28, 28, 0.1);
+  --danger-border: rgba(185, 28, 28, 0.35);
+  --warning: #b45309;
+  --warning-soft: rgba(180, 83, 9, 0.1);
+  --warning-border: rgba(180, 83, 9, 0.35);
   color-scheme: light;
 }
 
@@ -219,6 +237,47 @@ textarea {
   border: 1px solid var(--border);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-sm);
+}
+
+/* Theme-safe status messages — readable on light and dark */
+.status-message {
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
+.status-message--error {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: var(--danger-border);
+}
+
+.status-message--success {
+  color: var(--success);
+  background: var(--success-soft);
+  border-color: var(--success-border);
+}
+
+.status-message--warning {
+  color: var(--warning);
+  background: var(--warning-soft);
+  border-color: var(--warning-border);
+}
+
+.field-error {
+  color: var(--danger);
+}
+
+.input-invalid,
+input:user-invalid,
+textarea:user-invalid,
+select:user-invalid {
+  border-color: var(--danger-border) !important;
+  box-shadow: 0 0 0 1px var(--danger-soft);
 }
 
 .tech-grid {

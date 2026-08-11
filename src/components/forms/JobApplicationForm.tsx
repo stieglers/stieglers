@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Field, Input, TextArea } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { FormStatus } from "@/components/ui/FormStatus";
 
 const ALLOWED_TYPES = [
   "application/pdf",
@@ -74,14 +75,7 @@ export function JobApplicationForm({ position }: { position: string }) {
       <Button type="submit" disabled={status === "loading"} arrow>
         {status === "loading" ? "Submitting..." : "Submit application"}
       </Button>
-      {message ? (
-        <p
-          role="status"
-          className={status === "error" ? "text-sm text-[var(--danger)]" : "text-sm text-[var(--success)]"}
-        >
-          {message}
-        </p>
-      ) : null}
+      <FormStatus status={status} message={message} />
     </form>
   );
 }

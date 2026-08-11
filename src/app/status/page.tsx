@@ -37,7 +37,9 @@ export default function StatusPage() {
             {systems.map((system) => (
               <div key={system} className="flex items-center justify-between gap-4 px-5 py-4">
                 <span className="font-semibold">{system}</span>
-                <span className="text-sm font-semibold text-[var(--success)]">Operational</span>
+                <span className="status-message status-message--success !inline-flex !px-3 !py-1 text-xs font-semibold">
+                  Operational
+                </span>
               </div>
             ))}
           </div>
